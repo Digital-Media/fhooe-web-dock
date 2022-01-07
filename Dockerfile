@@ -9,6 +9,7 @@ WORKDIR /src
 # Install scripts
 RUN  /src/bin/install-apt.sh; \
      /src/bin/basic_tools.sh; \
+     /src/bin/add-cert.sh; \
      /src/bin/install-Apache2.sh; \
      /src/bin/install-PHP+Tools.sh; \
      /src/bin/switchhttps.sh;
