@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  db:
+    build: 
+      dockerfile: Dockerfile-mariadb
+    container_name: mariadb
+    volumes:
+      - ./bin:/tmp/bin
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_DATABASE: onlineshop
+      MYSQL_USER: onlineshop
+      MYSQL_PASSWORD: geheim
+      LANG: C.UTF-8
+    ports:
+      - "6033:3306"
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+  php-apache:
+    build: 
+      dockerfile: Dockerfile-php
+    container_name: webapp
+    volumes:
+      - ./webapp:/var/www/html
+    ports:
+      - "8080:80"
+    environment:
+      DB_HOST: db:3306
+      DB_USER: onlineshop
+      DB_NAME: onlineshop
+      DB_PASSWORD: geheim
+    restart: always
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80  
+volumes:
+  dbdata:
+networks:
+  default:
+    name: webnet

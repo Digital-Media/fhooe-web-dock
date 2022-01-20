@@ -1,0 +1,8 @@
+# General
+/.idea/
+
+# Synced folder
+/webshop/
+
+# Log files
+*.log
