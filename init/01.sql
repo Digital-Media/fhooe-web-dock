@@ -1,2 +1,2 @@
 CREATE DATABASE IF NOT EXISTS login;
-GRANT ALL PRIVILEGES ON *.* TO 'onlineshop'@'%';
+GRANT ALL PRIVILEGES ON login.* TO 'onlineshop'@'%';
