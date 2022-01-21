@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile-mariadb
     container_name: mariadb
     volumes:
-      - ./bin:/tmp/bin
+      - ./init:/docker-entrypoint-initdb.d
       - dbdata:/var/lib/mysql
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 1
