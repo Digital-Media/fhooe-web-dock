@@ -3,26 +3,31 @@
 Open Powershell (PS) or other Terminal (prompt my be different then).
 ```shell
 PS ???> cd <path-where-Docker-should-reside>
-PS ...> mkdir Docker
+PS ...> mkdir Docker # if not already exists
+PS ...> cd Docker
 PS .../Docker> git clone fhooe-web-dock
-PS .../Docker/fhooe-web-dock>cd fhooe-web-dock
+PS .../Docker> cd fhooe-web-dock
+PS .../Docker/fhooe-web-dock>
+PS .../Docker/fhoee-web-dock> mkdir webapp
 # no promt from now on
 docker compose up -d
  [+] Running 5/5
-    - Network fhooe-web-dock_default  Created                                                                   0.0s
+    - Network webnet                  Created                                                                   0.0s
     - Volume "fhooe-web-dock_dbdata"  Created                                                                   0.0s
-    - Container webapp               Started                                                                   5.3s
+    - Container webapp                Started                                                                   5.3s
     - Container mariadb               Started                                                                   5.0s
     - Container pma                   Started                                                                   3.2s
 ```
-## Stopping the Containers and destroy them
+## Stopping the Containers and removing them
 ```shell
 docker compose down
 ```
 ## Just Stopping the Containers
 ```shell
-docker compose stop?? 
-nochmal nachsehen in doku docker container stop? Unterschied
+docker compose stop
+ - Container pma      Stopped                                                                                   4.2s
+ - Container webapp   Stopped                                                                                   4.1s
+ - Container mariadb  Stopped
 ```
 ## See which images exist
 ```shell
@@ -38,6 +43,14 @@ phpmyadmin/phpmyadmin         latest      2e5141bbcbfb   7 months ago   474MB
 docker image rm fhooe-web-dock_php-apache
 docker image rm fhooe-web-dock_db
 docker image rm phpmyadmin/phpmyadmin
+```
+## List Containers
+```
+docker container ls
+```
+## List Volumes
+```
+docker volume ls
 ```
 ## Debugging:
 ```shell
