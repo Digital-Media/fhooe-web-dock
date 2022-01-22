@@ -29,6 +29,10 @@ docker compose stop
  - Container webapp   Stopped                                                                                   4.1s
  - Container mariadb  Stopped
 ```
+## Just Starting the Containers
+```shell
+docker compose start
+```
 ## See which images exist
 ```shell
 docker image ls
