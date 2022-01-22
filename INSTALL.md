@@ -18,20 +18,20 @@ docker compose up -d
     - Container mariadb               Started                                                                   5.0s
     - Container pma                   Started                                                                   3.2s
 ```
-## Stopping the Containers and removing them
-```shell
-docker compose down
-```
-## Just Stopping the Containers
+## Stopping the Containers
 ```shell
 docker compose stop
  - Container pma      Stopped                                                                                   4.2s
  - Container webapp   Stopped                                                                                   4.1s
  - Container mariadb  Stopped
 ```
-## Just Starting the Containers
+## Starting the Containers without rebuilding
 ```shell
 docker compose start
+```
+## Stopping the Containers and removing them
+```shell
+docker compose down
 ```
 ## See which images exist
 ```shell
