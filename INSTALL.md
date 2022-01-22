@@ -68,7 +68,7 @@ docker image ls
 Result \
 besides others there should be the following entries
 ```shell
-REPOSITORY                       TAG         IMAGE ID       CREATED        SIZE
+REPOSITORY                    TAG         IMAGE ID       CREATED        SIZE
 fhooe-web-dock_db             latest      96a53a828586   2 days ago     565MB
 fhooe-web-dock_php-apache     latest      5605e6a73edc   2 days ago     561MB
 phpmyadmin/phpmyadmin         latest      2e5141bbcbfb   7 months ago   474MB
