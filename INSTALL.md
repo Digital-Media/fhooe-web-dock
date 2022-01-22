@@ -34,19 +34,25 @@ no promt from now on
 ```shell
 docker compose up -d
 ```
-` [+] Running 5/5 `\
-`    - Network webnet                  Created                                                                   0.0s `\
-`    - Volume "fhooe-web-dock_dbdata"  Created                                                                   0.0s `\
-`    - Container webapp                Started                                                                   5.3s `\
-`    - Container mariadb               Started                                                                   5.0s `\
-`   - Container pma                   Started                                                                   3.2s`
+Result
+```shell
+ [+] Running 5/5 `\
+    - Network webnet                  Created                                                                   0.0s
+    - Volume "fhooe-web-dock_dbdata"  Created                                                                   0.0s
+    - Container webapp                Started                                                                   5.3s
+    - Container mariadb               Started                                                                   5.0s
+    - Container pma                   Started                                                                   3.2s
+```
 ## Stopping the Containers
 ```shell
 docker compose stop
 ```
-` - Container pma      Stopped                                                                                   4.2s `\
-` - Container webapp   Stopped                                                                                  4.1s `\
-` - Container mariadb  Stopped `
+Result
+```shell
+ - Container pma      Stopped                                                                                   4.2s 
+ - Container webapp   Stopped                                                                                  4.1s 
+ - Container mariadb  Stopped
+```
 ## Starting the Containers without rebuilding
 ```shell
 docker compose start
@@ -59,7 +65,8 @@ docker compose down
 ```shell
 docker image ls
 ```
-### besides others there should be the following entries
+Result \
+besides others there should be the following entries
 ```shell
 REPOSITORY                       TAG         IMAGE ID       CREATED        SIZE
 fhooe-web-dock_db             latest      96a53a828586   2 days ago     565MB
@@ -95,6 +102,7 @@ docker exec -it webapp /bin/bash
 ```shell
 ps -aux
 ```
+Result
 ```shell
  USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
  root         1  0.0  0.2  78988 26568 ?        Ss   08:30   0:00 apache2 -DFOREGROUND
@@ -106,7 +114,11 @@ ps -aux
  root        22  0.1  0.0   4092  3336 pts/0    Ss   08:40   0:00 /bin/bash
  root        29  0.0  0.0   6928  2908 pts/0    R+   08:40   0:00 ps -aux
 ```
-`root@<image-id>:/var/www/html# ps -ef `
+`root@<image-id>:/var/www/html# `
+```shell
+ps -ef
+```
+Result
 ```shell
  UID        PID  PPID  C STIME TTY          TIME CMD
  root         1     0  0 08:30 ?        00:00:00 apache2 -DFOREGROUND
