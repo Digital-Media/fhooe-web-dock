@@ -34,23 +34,19 @@ no promt from now on
 ```shell
 docker compose up -d
 ```
-```
- [+] Running 5/5
-    - Network webnet                  Created                                                                   0.0s
-    - Volume "fhooe-web-dock_dbdata"  Created                                                                   0.0s
-    - Container webapp                Started                                                                   5.3s
-    - Container mariadb               Started                                                                   5.0s
-    - Container pma                   Started                                                                   3.2s
-```
+` [+] Running 5/5 `\
+`    - Network webnet                  Created                                                                   0.0s `\
+`    - Volume "fhooe-web-dock_dbdata"  Created                                                                   0.0s `\
+`    - Container webapp                Started                                                                   5.3s `\
+`    - Container mariadb               Started                                                                   5.0s `\
+`   - Container pma                   Started                                                                   3.2s`
 ## Stopping the Containers
 ```shell
 docker compose stop
 ```
-```shell
- - Container pma      Stopped                                                                                   4.2s
- - Container webapp   Stopped                                                                                   4.1s
- - Container mariadb  Stopped
-```
+` - Container pma      Stopped                                                                                   4.2s `\
+` - Container webapp   Stopped                                                                                  4.1s `\
+` - Container mariadb  Stopped `
 ## Starting the Containers without rebuilding
 ```shell
 docker compose start
@@ -63,8 +59,8 @@ docker compose down
 ```shell
 docker image ls
 ```
-```
-# besides others there should be the following entries
+### besides others there should be the following entries
+```shell
 REPOSITORY                       TAG         IMAGE ID       CREATED        SIZE
 fhooe-web-dock_db             latest      96a53a828586   2 days ago     565MB
 fhooe-web-dock_php-apache     latest      5605e6a73edc   2 days ago     561MB
