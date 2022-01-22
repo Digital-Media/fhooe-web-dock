@@ -21,7 +21,7 @@ docker compose up -d
 ## Stopping the Containers
 ```shell
 docker compose stop
-```
+```shell
  - Container pma      Stopped                                                                                   4.2s
  - Container webapp   Stopped                                                                                   4.1s
  - Container mariadb  Stopped
