@@ -1,4 +1,12 @@
 # Install LAMPP  Environment with Docker
+
+## Install Docker
+
+[Download Docker](https://www.docker.com/products/docker-desktop)
+[Install Docker for Windows](https://docs.docker.com/desktop/windows/install/)
+[Install Docker for MAC](https://docs.docker.com/desktop/mac/install/)
+[Install Docker for Linux](https://docs.docker.com/engine/install/)
+
 ## Install fhooe-web-dock and start Containers
 Open Powershell (PS) or other Terminal (prompt my be different then).
 ```shell
