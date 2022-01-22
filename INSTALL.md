@@ -49,7 +49,7 @@ docker compose stop
 ```
 Result
 ```shell
- - Container pma      Stopped                                                                                   4.2s 
+ - Container pma      Stopped                                                                                  4.2s 
  - Container webapp   Stopped                                                                                  4.1s 
  - Container mariadb  Stopped
 ```
