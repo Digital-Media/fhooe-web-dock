@@ -1,5 +1,9 @@
 # Install LAMPP  Environment with Docker
 
+## Not familiar with Docker?
+
+[Start without install on Play-With-Docker](https://labs.play-with-docker.com/)
+
 ## Install Docker
 
 - [Download Docker Desktop for Windows or MAC](https://www.docker.com/products/docker-desktop)
