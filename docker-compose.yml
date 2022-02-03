@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 
 services:
   db:
@@ -43,9 +43,11 @@ services:
       PMA_ARBITRARY: 1
     restart: always
     ports:
-      - 8081:80  
+      - 8082:80 # for reasons I do not understand it doesn't work with 8081:80
 volumes:
   dbdata:
 networks:
   default:
     name: webnet
+
+# https://stackoverflow.com/questions/59689856/docker-php-access-control-allow-origin-cors
