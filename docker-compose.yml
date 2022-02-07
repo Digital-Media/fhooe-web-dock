@@ -26,6 +26,7 @@ services:
       - ./webapp:/var/www/html
     ports:
       - "8080:80"
+      - "444:443"
     environment:
       DB_HOST: db:3306
       DB_USER: onlineshop

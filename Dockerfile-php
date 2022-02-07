@@ -10,4 +10,5 @@ RUN docker-php-ext-install pdo_mysql \
     && /src/install-apt.sh \
     && /src/basic_tools.sh \
     && /src/install-PHP+Tools.sh \
-	&& /src/install-Apache2.sh
+	&& /src/install-Apache2.sh \
+    && /src/switchhttps.sh
