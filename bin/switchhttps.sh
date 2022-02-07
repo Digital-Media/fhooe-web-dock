@@ -1,9 +1,6 @@
 #!/bin/bash
 a2enmod ssl
 a2ensite default-ssl
-echo "#############################################################"
-echo "## Switching to AllowOverride All for /var/www/html/code/* ##"
-echo "#############################################################"
 cd /etc/apache2
 mkdir ssl
 cd ssl
@@ -19,5 +16,4 @@ sed -i '134i </Directory>' default-ssl.conf
 sed -i 's+/etc/ssl/certs/ssl-cert-snakeoil.pem+/etc/apache2/ssl/ssl.crt+g' default-ssl.conf
 sed -i 's+/etc/ssl/private/ssl-cert-snakeoil.key+/etc/apache2/ssl/ssl.key+g' default-ssl.conf
 service apache2 restart
-netstat -apnt |grep apache2
 

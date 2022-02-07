@@ -1,0 +1,11 @@
+# Linux x64
+FROM phpmyadmin/phpmyadmin
+
+LABEL maintainer="mhteaching2703@gmail.com"
+
+# Copy bin to /src
+COPY bin /src
+# Install scripts
+RUN /src/install-apt.sh \
+    && /src/basic_tools.sh \
+    && /src/switchhttps.sh

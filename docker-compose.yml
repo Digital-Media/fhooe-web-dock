@@ -26,7 +26,7 @@ services:
       - ./webapp:/var/www/html
     ports:
       - "8080:80"
-      - "444:443"
+      - "4443:443"
     environment:
       DB_HOST: db:3306
       DB_USER: onlineshop
@@ -34,7 +34,8 @@ services:
       DB_PASSWORD: geheim
     restart: always
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    build:
+      dockerfile: Dockerfile-phpadmin
     container_name: pma
     links:
       - db
@@ -45,6 +46,7 @@ services:
     restart: always
     ports:
       - 8082:80 # for reasons I do not understand it doesn't work with 8081:80
+      - 5443:443
 volumes:
   dbdata:
 networks:
