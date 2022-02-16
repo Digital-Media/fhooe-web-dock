@@ -47,6 +47,12 @@ Result
     - Container mariadb               Started                                                                   5.0s
     - Container pma                   Started                                                                   3.2s
 ```
+## Using pre-built images
+
+```shell
+docker compose -f docker-compose.prebuilt.yml up -d
+```
+
 ## Stopping the Containers
 ```shell
 docker compose stop
@@ -178,6 +184,27 @@ docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim"
 `PS path-to-Docker/Docker/fhooe-web-dock> `
 ```shell
 docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim </tmp/bin/onlineshop.sql"
+```
+
+## pushing the pre-built images
+
+```shell
+docker build -f Dockerfile-mariadb -t mhteaching/fhooe-web-dock:mariadb .
+```
+```shell
+docker build -f Dockerfile-php -t mhteaching/fhooe-web-dock:php .
+```
+```shell
+docker build -f Dockerfile-phpmyadmin -t mhteaching/fhooe-web-dock:phpmyadmin .
+```
+```shell
+docker push mhteaching/fhooe-web-dock:mariadb
+```
+```shell
+docker push mhteaching/fhooe-web-dock:php
+```
+```shell
+docker push mhteaching/fhooe-web-dock:phpmyadmin
 ```
 
 # Toubleshooting chrome + hsts
