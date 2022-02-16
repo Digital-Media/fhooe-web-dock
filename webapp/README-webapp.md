@@ -3,4 +3,4 @@
 
 Place your Webapp here or clone it after this folder has been mounted in the container
 
-**You have to delete this README.md before for the folder to be empty for cloning.**
+**You have to delete this README-werbapp.md before for the folder to be empty for cloning.**
