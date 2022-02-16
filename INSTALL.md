@@ -27,7 +27,7 @@ cd Docker
 ```
 `PS path-to-Docker> `
 ```shell
-git clone fhooe-web-dock
+git clone https://github.com/Digital-Media/fhooe-web-dock.git
 cd fhooe-web-dock
 ```
 `PS path-to-Docker/Docker/fhooe-web-dock> `
