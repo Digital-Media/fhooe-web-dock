@@ -31,6 +31,13 @@ git clone https://github.com/Digital-Media/fhooe-web-dock.git
 cd fhooe-web-dock
 ```
 no promt from now on
+## Using pre-built images
+
+```shell
+docker compose -f docker-compose.prebuilt.yml up -d
+```
+## Using varified images from Docker Hub and build layers on your own
+
 ```shell
 docker compose up -d
 ```
@@ -42,11 +49,6 @@ Result
     - Container webapp                Started                                                                   5.3s
     - Container mariadb               Started                                                                   5.0s
     - Container pma                   Started                                                                   3.2s
-```
-## Using pre-built images
-
-```shell
-docker compose -f docker-compose.prebuilt.yml up -d
 ```
 
 ## Stopping the Containers
