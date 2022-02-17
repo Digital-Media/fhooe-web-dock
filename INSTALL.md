@@ -34,12 +34,12 @@ no promt from now on
 ## Using pre-built images
 
 ```shell
-docker compose -f docker-compose.yml up -d
+docker compose up -d
 ```
 ## Using varified images from Docker Hub and build layers on your own
 
 ```shell
-docker compose up -d
+docker compose -f docker-compose.layered.yml up -d
 ```
 Result
 ```shell
