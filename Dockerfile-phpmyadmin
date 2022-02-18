@@ -3,7 +3,6 @@ FROM phpmyadmin/phpmyadmin
 
 LABEL maintainer="mhteaching2703@gmail.com"
 
-# Copy src to /src
 COPY src /src
 # Install scripts
 RUN /src/install-apt.sh \
