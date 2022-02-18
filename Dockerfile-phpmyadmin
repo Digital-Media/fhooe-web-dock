@@ -3,8 +3,8 @@ FROM phpmyadmin/phpmyadmin
 
 LABEL maintainer="mhteaching2703@gmail.com"
 
-# Copy bin to /src
-COPY bin /src
+# Copy src to /src
+COPY src /src
 # Install scripts
 RUN /src/install-apt.sh \
     && /src/basic_tools.sh \
