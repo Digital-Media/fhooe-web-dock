@@ -36,6 +36,12 @@ no promt from now on
 ```shell
 docker compose up -d
 ```
+## Using private repository dockerhub.fh-hagenberg.at
+
+```shell
+docker compose -f .\docker-compose.fhooe.yml up -d
+```
+
 ## Using varified images from Docker Hub and build layers on your own
 
 ```shell
