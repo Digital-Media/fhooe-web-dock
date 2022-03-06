@@ -47,18 +47,30 @@ docker image prune -f
 
 ## Using private repository dockerhub.fh-hagenberg.at
 
+Windows
 ```shell
 docker compose -f .\docker-compose.fhooe.yml up -d
 ```
-refreshing containers after bug fixing
+MAC, Linux
+```shell
+docker compose -f ./docker-compose.fhooe.yml up -d
+```
+**Refreshing containers after bug fixing**
+
+Windows
 ```shell
 docker compose -f .\docker-compose.fhooe.yml up --force-recreate --build -d
 ```
+MAC, Linux
+```shell
+docker compose -f ./docker-compose.fhooe.yml up --force-recreate --build -d
+```
+Deleting stale images
 ```shell
 docker image prune -f
 ```
 
-## Using varified images from Docker Hub and build layers on your own
+## Using verified images from Docker Hub and build layers on your own
 
 ```shell
 docker compose -f docker-compose.layered.yml up -d
