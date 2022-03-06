@@ -28,18 +28,34 @@ cd Docker
 `PS path-to-Docker> `
 ```shell
 git clone https://github.com/Digital-Media/fhooe-web-dock.git
+```
+```shell
 cd fhooe-web-dock
 ```
-no promt from now on
-## Using pre-built images
+## Using pre-built images from GithHub
 
 ```shell
 docker compose up -d
 ```
+refreshing containers after bug fixing
+```shell
+docker compose up --force-recreate --build -d
+```
+```shell
+docker image prune -f
+```
+
 ## Using private repository dockerhub.fh-hagenberg.at
 
 ```shell
 docker compose -f .\docker-compose.fhooe.yml up -d
+```
+refreshing containers after bug fixing
+```shell
+docker compose -f .\docker-compose.fhooe.yml up --force-recreate --build -d
+```
+```shell
+docker image prune -f
 ```
 
 ## Using varified images from Docker Hub and build layers on your own
