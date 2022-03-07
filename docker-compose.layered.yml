@@ -13,6 +13,7 @@ services:
       MYSQL_DATABASE: onlineshop
       MYSQL_USER: onlineshop
       MYSQL_PASSWORD: geheim
+      MYSQL_ROOT_HOST: "%"
       LANG: C.UTF-8
     ports:
       - "6033:3306"
