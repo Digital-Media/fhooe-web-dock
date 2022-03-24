@@ -153,7 +153,7 @@ Result
  www-data    19  0.0  0.0  79256 11952 ?        S    08:30   0:00 apache2 -DFOREGROUND
  www-data    20  0.0  0.0  79256 11952 ?        S    08:30   0:00 apache2 -DFOREGROUND
  www-data    21  0.0  0.0  79256 11952 ?        S    08:30   0:00 apache2 -DFOREGROUND
- root        22  0.1  0.0   4092  3336 pts/0    Ss   08:40   0:00 /src/bash
+ root        22  0.1  0.0   4092  3336 pts/0    Ss   08:40   0:00 /bin/bash
  root        29  0.0  0.0   6928  2908 pts/0    R+   08:40   0:00 ps -aux
 ```
 `root@<image-id>:/var/www/html# `
@@ -169,17 +169,17 @@ Result
  www-data    19     1  0 08:30 ?        00:00:00 apache2 -DFOREGROUND
  www-data    20     1  0 08:30 ?        00:00:00 apache2 -DFOREGROUND
  www-data    21     1  0 08:30 ?        00:00:00 apache2 -DFOREGROUND
- root        22     0  0 08:40 pts/0    00:00:00 /src/bash
+ root        22     0  0 08:40 pts/0    00:00:00 /bin/bash
  root        30    22  0 08:40 pts/0    00:00:00 ps -ef
 ```
 `PS path-to-Docker/Docker/fhooe-web-dock> `
 ```shell
-docker exec -it webapp /src/bash -c "ps -aux"
+docker exec -it webapp /bin/bash -c "ps -aux"
 ```
 ## Maintaining a database in Container mariadb
 `PS path-to-Docker/Docker/fhooe-web-dock> `
 ```shell
-docker exec -it mariadb /src/bash -c "mariadb -uonlineshop -pgeheim"
+docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim"
 ```
 ```shell
  Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -215,7 +215,7 @@ docker exec -it mariadb /src/bash -c "mariadb -uonlineshop -pgeheim"
 ## Starting a database script from Powershell
 `PS path-to-Docker/Docker/fhooe-web-dock> `
 ```shell
-docker exec -it mariadb /src/bash -c "mariadb -uonlineshop -pgeheim </tmp/bin/onlineshop.sql"
+docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim </src/onlineshop.sql"
 ```
 
 ## pushing the pre-built images
