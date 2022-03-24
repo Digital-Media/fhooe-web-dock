@@ -131,14 +131,14 @@ docker volume ls
 ```
 ## Debugging:
 ```shell
-docker exec -it webapp /src/bash
-docker exec -it mariadb /src/bash
-docker exec -it pma /src/bash
+docker exec -it webapp /bin/bash
+docker exec -it mariadb /bin/bash
+docker exec -it pma /bin/bash
 ```
 ## See processes running in Container webshop
 `PS path-to-Docker/Docker/fhooe-web-dock> ` 
 ```shell
-docker exec -it webapp /src/bash
+docker exec -it webapp /bin/bash
 ```
 `root@<image-id>:/var/www/html# `
 ```shell
