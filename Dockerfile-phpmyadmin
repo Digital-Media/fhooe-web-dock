@@ -1,5 +1,5 @@
-# Linux x64
-FROM phpmyadmin/phpmyadmin
+# Linux x64 and MAC Intel and MAC M1
+FROM phpmyadmin
 
 LABEL maintainer="mhteaching2703@gmail.com"
 
