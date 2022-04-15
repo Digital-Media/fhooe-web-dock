@@ -5,6 +5,8 @@ LABEL maintainer="mhteaching2703@gmail.com"
 
 COPY src /src
 # Install scripts
-RUN /src/install-apt.sh \
+RUN    cd /src \
+    && chmod 755 *.sh \
+    && /src/install-apt.sh \
     && /src/basic_tools.sh \
     && /src/switchhttps.sh
