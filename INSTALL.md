@@ -32,6 +32,13 @@ git clone https://github.com/Digital-Media/fhooe-web-dock.git
 ```shell
 cd fhooe-web-dock
 ```
+
+## Starting a database script from Powershell
+`PS path-to-Docker/Docker/fhooe-web-dock> `
+```shell
+docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim </src/onlineshop.sql"
+```
+This script can be run form anywhere in the filesystem, because it addresses the container.
 ## Using pre-built images from GithHub
 
 ```shell
@@ -102,11 +109,6 @@ docker compose start
 ## Stopping the Containers and removing them
 ```shell
 docker compose down
-```
-## Starting a database script from Powershell
-`PS path-to-Docker/Docker/fhooe-web-dock> `
-```shell
-docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim </src/onlineshop.sql"
 ```
 
 ## See which images exist
