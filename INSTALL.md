@@ -221,7 +221,7 @@ docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim"
 ```
 `PS path-to-Docker/Docker/fhooe-web-dock> `
 
-## pushing the pre-built images
+## pushing the pre-built images to registry-1.docker.io
 
 ```shell
 docker build -f Dockerfile-mariadb -t mhteaching/fhooe-web-dock:mariadb .
