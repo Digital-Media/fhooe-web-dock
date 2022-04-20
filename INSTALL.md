@@ -39,7 +39,7 @@ cd fhooe-web-dock
 docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim </src/onlineshop.sql"
 ```
 This script can be run form anywhere in the filesystem, because it addresses the container.
-## Using pre-built images from GithHub
+## Using pre-built images from GitHub
 
 ```shell
 docker compose up -d
