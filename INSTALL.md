@@ -103,6 +103,12 @@ docker compose start
 ```shell
 docker compose down
 ```
+## Starting a database script from Powershell
+`PS path-to-Docker/Docker/fhooe-web-dock> `
+```shell
+docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim </src/onlineshop.sql"
+```
+
 ## See which images exist
 ```shell
 docker image ls
@@ -212,11 +218,6 @@ docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim"
  exit
 ```
 `PS path-to-Docker/Docker/fhooe-web-dock> `
-## Starting a database script from Powershell
-`PS path-to-Docker/Docker/fhooe-web-dock> `
-```shell
-docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim </src/onlineshop.sql"
-```
 
 ## pushing the pre-built images
 
