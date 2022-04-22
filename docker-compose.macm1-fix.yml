@@ -1,0 +1,54 @@
+# this file is meant to pull from a private repository to save bandwidth within fhooe
+version: '3.9'
+
+services:
+  db:
+    image: dockerhub.fh-hagenberg.at/web_dock/mariadb:ss22-macm1-fix
+    container_name: mariadb
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_DATABASE: onlineshop
+      MYSQL_USER: onlineshop
+      MYSQL_PASSWORD: geheim
+      LANG: C.UTF-8
+    ports:
+      - "6633:3306"
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+  php-apache:
+    image: dockerhub.fh-hagenberg.at/web_dock/php:ss22-macm1-fix
+    container_name: webapp
+    volumes:
+      - ./webapp:/var/www/html
+    ports:
+      - "8880:80"
+      - "7443:443"
+    environment:
+      DB_HOST: db:3306
+      DB_USER: onlineshop
+      DB_NAME: onlineshop
+      DB_PASSWORD: geheim
+    restart: always
+  phpmyadmin:
+    image: dockerhub.fh-hagenberg.at/web_dock/phpmyadmin:ss22-macm1-fix
+    container_name: pma
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8882:80 # for reasons I do not understand it doesn't work with 8081:80
+      - 8443:443
+volumes:
+  dbdata:
+networks:
+  default:
+    name: webnet
+
+# https://stackoverflow.com/questions/59689856/docker-php-access-control-allow-origin-cors
