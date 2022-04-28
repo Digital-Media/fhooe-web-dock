@@ -1,4 +1,10 @@
 #!/bin/bash
+echo "## Installing PHP Intl extension ##"
+apt-get install -y libicu-dev
+docker-php-ext-configure intl
+docker-php-ext-install intl
+
+#!/bin/bash
 echo "## Installing composer ##"
 cd /tmp
 EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
