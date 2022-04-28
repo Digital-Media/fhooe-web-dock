@@ -1,8 +1,5 @@
 #!/bin/bash
 echo "## Installing PHP Intl extension ##"
-apt-get install -y libicu-dev
-docker-php-ext-configure intl
-docker-php-ext-install intl
 
 #!/bin/bash
 echo "## Installing composer ##"
