@@ -1,4 +1,4 @@
-*
+webapp/*
 !.gitattributes
 !.gitignore
 !README.md
