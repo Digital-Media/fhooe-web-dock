@@ -15,7 +15,7 @@ services:
       MYSQL_PASSWORD: geheim
       LANG: C.UTF-8
     ports:
-      - "6633:3306"
+      - "6033:3306"
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always
   php-apache:
@@ -24,7 +24,7 @@ services:
     volumes:
       - ./webapp:/var/www/html
     ports:
-      - "8880:80"
+      - "8080:80"
       - "7443:443"
     environment:
       DB_HOST: db:3306
@@ -43,7 +43,7 @@ services:
       PMA_ARBITRARY: 1
     restart: always
     ports:
-      - 8882:80 # for reasons I do not understand it doesn't work with 8081:80
+      - 8082:80 # for reasons I do not understand it doesn't work with 8081:80
       - 8443:443
 volumes:
   dbdata:

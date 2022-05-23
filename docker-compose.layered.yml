@@ -26,8 +26,8 @@ services:
     volumes:
       - ./webapp:/var/www/html
     ports:
-      - "8083:80"
-      - "6443:443"
+      - "8080:80"
+      - "7443:443"
     environment:
       DB_HOST: db:3306
       DB_USER: onlineshop
@@ -46,8 +46,8 @@ services:
       PMA_ARBITRARY: 1
     restart: always
     ports:
-      - 8084:80 # for reasons I do not understand it doesn't work with 8081:80
-      - 7443:443
+      - 8082:80 # for reasons I do not understand it doesn't work with 8081:80
+      - 8443:443
 volumes:
   dbdata:
 networks:

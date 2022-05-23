@@ -15,7 +15,7 @@ services:
       MYSQL_PASSWORD: geheim
       LANG: C.UTF-8
     ports:
-      - "6633:3306"
+      - "6033:3306"
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always
   php-apache:
