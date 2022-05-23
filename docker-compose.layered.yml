@@ -25,6 +25,7 @@ services:
     container_name: webapp-l
     volumes:
       - ./webapp:/var/www/html
+      - ./src/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     ports:
       - "8080:80"
       - "7443:443"

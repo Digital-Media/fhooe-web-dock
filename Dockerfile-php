@@ -7,9 +7,16 @@ COPY src /src
 # Install scripts
 RUN apt-get update -y \
     && apt-get install -y libicu-dev \
+					      libfreetype6-dev \
+						  libjpeg62-turbo-dev \
+		                  libpng-dev \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
+	&& docker-php-ext-configure gd --with-freetype --with-jpeg \
+	&& docker-php-ext-install -j$(nproc) gd \
+	&& pecl install xdebug \
+	&& docker-php-ext-enable xdebug \
     && cd /src \
     && chmod 755 *.sh \
     && /src/install-apt.sh \
