@@ -190,7 +190,7 @@ docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim"
  1 row in set (0.001 sec)
 
  MariaDB [(none)]> 
- ```
+```
 ```shell
  exit
 ```
