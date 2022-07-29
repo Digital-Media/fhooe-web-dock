@@ -60,7 +60,7 @@ docker compose -f .\docker-compose.fhooe.yml up -d
 ```
 MAC, Linux
 ```shell
-docker compose -f ./docker-compose.fhooe.yml up -d
+docker compose -f ./docker-compose.tagged.yml up -d
 ```
 **Refreshing containers after bug fixing**
 
@@ -70,7 +70,7 @@ docker compose -f .\docker-compose.fhooe.yml up --force-recreate --build -d
 ```
 MAC, Linux
 ```shell
-docker compose -f ./docker-compose.fhooe.yml up --force-recreate --build -d
+docker compose -f ./docker-compose.tagged.yml up --force-recreate --build -d
 ```
 Deleting stale images
 ```shell
@@ -80,7 +80,7 @@ docker image prune -f
 ## Using verified images from Docker Hub and build layers on your own
 
 ```shell
-docker compose -f docker-compose.layered.yml up -d
+docker compose -f docker-compose.yml up -d
 ```
 Result
 ```shell

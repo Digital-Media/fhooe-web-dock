@@ -1,9 +1,8 @@
-# this file is meant to pull from a private repository to save bandwidth within fhooe
 version: '3.9'
 
 services:
   db:
-    image: dockerhub.fh-hagenberg.at/web_dock/mariadb:ss22-macm1-fix
+    image: mhteaching/fhooe-web-dock:mariadb
     container_name: mariadb
     volumes:
       - ./init:/docker-entrypoint-initdb.d
@@ -19,7 +18,7 @@ services:
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always
   php-apache:
-    image: dockerhub.fh-hagenberg.at/web_dock/php:ss22-macm1-fix
+    image: mhteaching/fhooe-web-dock:php
     container_name: webapp
     volumes:
       - ./webapp:/var/www/html
@@ -33,7 +32,7 @@ services:
       DB_PASSWORD: geheim
     restart: always
   phpmyadmin:
-    image: dockerhub.fh-hagenberg.at/web_dock/phpmyadmin:ss22-macm1-fix
+    image: mhteaching/fhooe-web-dock:phpmyadmin
     container_name: pma
     links:
       - db

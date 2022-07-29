@@ -2,7 +2,8 @@ version: '3.9'
 
 services:
   db:
-    image: mhteaching/fhooe-web-dock:mariadb
+    build: 
+      dockerfile: Dockerfile-mariadb
     container_name: mariadb
     volumes:
       - ./init:/docker-entrypoint-initdb.d
@@ -12,16 +13,19 @@ services:
       MYSQL_DATABASE: onlineshop
       MYSQL_USER: onlineshop
       MYSQL_PASSWORD: geheim
+      MYSQL_ROOT_HOST: "%"
       LANG: C.UTF-8
     ports:
       - "6033:3306"
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always
   php-apache:
-    image: mhteaching/fhooe-web-dock:php
+    build: 
+      dockerfile: Dockerfile-php
     container_name: webapp
     volumes:
       - ./webapp:/var/www/html
+      - ./src/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     ports:
       - "8080:80"
       - "7443:443"
@@ -32,7 +36,8 @@ services:
       DB_PASSWORD: geheim
     restart: always
   phpmyadmin:
-    image: mhteaching/fhooe-web-dock:phpmyadmin
+    build:
+      dockerfile: Dockerfile-phpmyadmin
     container_name: pma
     links:
       - db
