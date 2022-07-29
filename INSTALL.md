@@ -52,35 +52,10 @@ docker compose up --force-recreate --build -d
 docker image prune -f
 ```
 
-## Using private repository dockerhub.fh-hagenberg.at
-
-Windows
-```shell
-docker compose -f .\docker-compose.fhooe.yml up -d
-```
-MAC, Linux
-```shell
-docker compose -f ./docker-compose.tagged.yml up -d
-```
-**Refreshing containers after bug fixing**
-
-Windows
-```shell
-docker compose -f .\docker-compose.fhooe.yml up --force-recreate --build -d
-```
-MAC, Linux
-```shell
-docker compose -f ./docker-compose.tagged.yml up --force-recreate --build -d
-```
-Deleting stale images
-```shell
-docker image prune -f
-```
-
 ## Using verified images from Docker Hub and build layers on your own
 
 ```shell
-docker compose -f docker-compose.yml up -d
+docker compose up -d
 ```
 Result
 ```shell
