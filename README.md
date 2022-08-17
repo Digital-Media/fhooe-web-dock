@@ -4,4 +4,4 @@ This repository provides a Docker environment for web development designed for t
 
 ## Installation
 
-See [INSTALL.md](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md) for Details and Troubleshooting
+See [INSTALL.md](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md) for Details and Troubleshooting.
