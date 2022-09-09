@@ -85,6 +85,9 @@ docker compose down
 ```shell
 docker image ls
 ```
+```shell
+docker images
+```
 Result \
 besides others there should be the following entries
 ```shell
