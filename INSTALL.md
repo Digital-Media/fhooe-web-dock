@@ -44,19 +44,6 @@ This script can be run form anywhere in the filesystem, because it addresses the
 ```shell
 docker compose up -d
 ```
-refreshing containers after bug fixing
-```shell
-docker compose up --force-recreate --build -d
-```
-```shell
-docker image prune -f
-```
-
-## Using verified images from Docker Hub and build layers on your own
-
-```shell
-docker compose up -d
-```
 Result
 ```shell
  [+] Running 5/5 `\
@@ -65,6 +52,14 @@ Result
     - Container webapp                Started                                                                   5.3s
     - Container mariadb               Started                                                                   5.0s
     - Container pma                   Started                                                                   3.2s
+```
+refreshing containers after bug fixing
+```shell
+docker compose up --force-recreate --build -d
+```
+removing dangeling images
+```shell
+docker image prune -f
 ```
 
 ## Stopping the Containers
