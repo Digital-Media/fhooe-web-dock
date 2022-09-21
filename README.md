@@ -4,6 +4,6 @@ This repository provides a Docker environment for web development designed for t
 
 ## Installation
 
-For unlimited download sign up for a [GitHub Account](https://github.com). 
+For unlimited download sign up for a GitHub Account. 
 
-For more Detaisl how to intall and work with Docker see [INSTALL.md](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md) for Details and Troubleshooting.
+For more Details how to intall and work with Docker see [INSTALL.md](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md) for Details and Troubleshooting.
