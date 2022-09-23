@@ -52,27 +52,26 @@ Result
 docker compose up --force-recreate --build -d
 ```
 ## Cleaning Up before Re-Install
-
 You can clean up using Docker Desktop 
 - Stop and remove Containers
-- Remove Images
-- Remove Volume
+- Remove Images for mariadb, php-apache and phpmyadmin
+- Remove Volume fhooe-web-dock_dbdata
+
 ### Stopping the Containers and removing them in Commandline
 - Go to directory, where docker-compose.yml is installed.
-- Save all Files in directory webapp
+- Type \.CleanReinstall.sh
+This will execute the following commands in one go.
 ```shell
 docker compose down
 ```
-### Removing images
 ```shell
 docker image prune -f
 ```
-### Removing volumes to reset data already stored
 ```shell
 docker volume rm --force fhooe-web-dock_dbdata;
 ```
 See [Starting Container](#starting-containers) to start again.
-Restore Backup of webapp or reinstall webshop as well.
+
 
 # Toubleshooting chrome + hsts
 - [Follow Link for Instructions](https://superuser.com/questions/1400200/chrome-persistently-redirecting-to-https-for-http-site)
