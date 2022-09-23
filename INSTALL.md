@@ -33,26 +33,7 @@ git clone https://github.com/Digital-Media/fhooe-web-dock.git
 cd fhooe-web-dock
 ```
 
-## Starting a database script from Powershell
-`PS path-to-Docker/Docker/fhooe-web-dock> `
-```shell
-docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim </src/onlineshop.sql"
-```
-This script can be run form anywhere in the filesystem, because it addresses the container.
-## Using pre-built images from GitHub
-
-```shell
-docker compose up -d
-```
-refreshing containers after bug fixing
-```shell
-docker compose up --force-recreate --build -d
-```
-```shell
-docker image prune -f
-```
-
-## Using verified images from Docker Hub and build layers on your own
+## Starting Containers
 
 ```shell
 docker compose up -d
@@ -66,6 +47,45 @@ Result
     - Container mariadb               Started                                                                   5.0s
     - Container pma                   Started                                                                   3.2s
 ```
+## Refreshing containers after bug fixing
+```shell
+docker compose up --force-recreate --build -d
+```
+## Cleaning Up before Re-Install
+
+You can clean up using Docker Desktop 
+- Stop and remove Containers
+- Remove Images
+- Remove Volume
+### Stopping the Containers and removing them in Commandline
+- Go to directory, where docker-compose.yml is installed.
+- Save all Files in directory webapp
+```shell
+docker compose down
+```
+### Removing images
+```shell
+docker image prune -f
+```
+### Removing volumes to reset data already stored
+```shell
+docker volume rm --force fhooe-web-dock_dbdata;
+```
+See [Starting Container](#starting-containers) to start again.
+Restore Backup of webapp or reinstall webshop as well.
+
+# Toubleshooting chrome + hsts
+- [Follow Link for Instructions](https://superuser.com/questions/1400200/chrome-persistently-redirecting-to-https-for-http-site)
+- enter `chrome://net-internals/#hsts` in Chrome Browser
+- goto end of site.
+- enter "localhost" and press "Delete"
+```
+# Delete domain security policies
+Input a domain name to delete its dynamic domain security policies (HSTS and Expect-CT).(You cannot delete preloaded entries.):
+Domain:[example.com -> localhost][Delete]
+```
+
+# More Commands to work with Containers and Images
 
 ## Stopping the Containers
 ```shell
@@ -80,10 +100,6 @@ Result
 ## Starting the Containers without rebuilding
 ```shell
 docker compose start
-```
-## Stopping the Containers and removing them
-```shell
-docker compose down
 ```
 
 ## See which images exist
@@ -159,45 +175,10 @@ Result
 ```shell
 docker exec -it webapp /bin/bash -c "ps -aux"
 ```
-## Maintaining a database in Container mariadb
-`PS path-to-Docker/Docker/fhooe-web-dock> `
-```shell
-docker exec -it mariadb /bin/bash -c "mariadb -uonlineshop -pgeheim"
-```
-```shell
- Welcome to the MariaDB monitor.  Commands end with ; or \g.
- Your MariaDB connection id is 7
- Server version: 10.7.1-MariaDB-1:10.7.1+maria~focal mariadb.org binary distribution
 
- Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+# pushing pre-built images to registry-1.docker.io
 
- Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
- MariaDB [(none)]> drop database onlineshop;
- Query OK, 11 rows affected (0.229 sec)
-
- MariaDB [(none)]> 
- ```
-```shell
- show databases;
-```
-```shell
- +--------------------+
- | Database           |
- +--------------------+
- | information_schema |
- +--------------------+
- 1 row in set (0.001 sec)
-
- MariaDB [(none)]> 
-```
-```shell
- exit
-```
-`PS path-to-Docker/Docker/fhooe-web-dock> `
-
-## pushing the pre-built images to registry-1.docker.io
-
+## building and tagging
 ```shell
 docker build -f Dockerfile-mariadb -t mhteaching/fhooe-web-dock:mariadb .
 ```
@@ -207,6 +188,7 @@ docker build -f Dockerfile-php -t mhteaching/fhooe-web-dock:php .
 ```shell
 docker build -f Dockerfile-phpmyadmin -t mhteaching/fhooe-web-dock:phpmyadmin .
 ```
+## pushing
 ```shell
 docker push mhteaching/fhooe-web-dock:mariadb
 ```
@@ -216,14 +198,7 @@ docker push mhteaching/fhooe-web-dock:php
 ```shell
 docker push mhteaching/fhooe-web-dock:phpmyadmin
 ```
-
-# Toubleshooting chrome + hsts
-- [Follow Link for Instructions](https://superuser.com/questions/1400200/chrome-persistently-redirecting-to-https-for-http-site)
-- enter `chrome://net-internals/#hsts` in Chrome Browser
-- goto end of site. 
-- enter "localhost" and press "Delete"
-```
-# Delete domain security policies
-Input a domain name to delete its dynamic domain security policies (HSTS and Expect-CT).(You cannot delete preloaded entries.):
-Domain:[example.com -> localhost][Delete]
+## pulling
+```shell
+docker compose up -f docker-compose.tagged.yml -d
 ```
