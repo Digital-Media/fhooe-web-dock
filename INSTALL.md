@@ -51,16 +51,16 @@ Result
 ```shell
 docker compose up --force-recreate --build -d
 ```
-## Cleaning Up before Re-Install
-You can clean up using Docker Desktop 
+## Cleaning Up and Re-Install
+You can clean up using Docker Desktop
 - Stop and remove Containers
 - Remove Images for mariadb, php-apache and phpmyadmin
 - Remove Volume fhooe-web-dock_dbdata
 
-### Stopping the Containers and removing them in Commandline
+### Clean Re-Install in Commandline
 - Go to directory, where docker-compose.yml is installed.
 - Type \.CleanReinstall.sh
-This will execute the following commands in one go.
+  This will execute the following commands in one go.
 
 stop and delete containers
 ```shell
@@ -76,7 +76,7 @@ docker volume rm --force fhooe-web-dock_dbdata;
 ```
 See [Starting Container](#starting-containers) to start again.
 
-delete only images for fhooe-web-dock
+manually deleting only images for fhooe-web-dock
 ```shell
 docker image rm fhooe-web-dock_php-apache
 docker image rm fhooe-web-dock_db
