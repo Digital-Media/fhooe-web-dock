@@ -61,17 +61,27 @@ You can clean up using Docker Desktop
 - Go to directory, where docker-compose.yml is installed.
 - Type \.CleanReinstall.sh
 This will execute the following commands in one go.
+
+stop and delete containers
 ```shell
 docker compose down
 ```
+delete all unused images
 ```shell
 docker image prune -f
 ```
+remove volume
 ```shell
 docker volume rm --force fhooe-web-dock_dbdata;
 ```
 See [Starting Container](#starting-containers) to start again.
 
+delete only images for fhooe-web-dock
+```shell
+docker image rm fhooe-web-dock_php-apache
+docker image rm fhooe-web-dock_db
+docker image rm phpmyadmin/phpmyadmin
+```
 
 # Toubleshooting chrome + hsts
 - [Follow Link for Instructions](https://superuser.com/questions/1400200/chrome-persistently-redirecting-to-https-for-http-site)
@@ -113,12 +123,7 @@ fhooe-web-dock_db             latest      96a53a828586   2 days ago     565MB
 fhooe-web-dock_php-apache     latest      5605e6a73edc   2 days ago     561MB
 phpmyadmin/phpmyadmin         latest      2e5141bbcbfb   7 months ago   474MB
 ```
-## Delete images
-```shell
-docker image rm fhooe-web-dock_php-apache
-docker image rm fhooe-web-dock_db
-docker image rm phpmyadmin/phpmyadmin
-```
+
 ## List Containers
 ```
 docker container ls
