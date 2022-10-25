@@ -206,3 +206,7 @@ docker push mhteaching/fhooe-web-dock:phpmyadmin
 ```shell
 docker compose up -f docker-compose.tagged.yml -d
 ```
+
+## Troublshooting Docker Desktop and Containers
+
+See the [Wiki](https://github.com/Digital-Media/fhooe-web-dock/wiki)
