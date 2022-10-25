@@ -10,7 +10,7 @@ openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -subj \
     -keyout ./ssl.key -out ./ssl.crt
 cd ../sites-enabled
 
-sed -i '131i <Directory /var/www/html/code/*>' default-ssl.conf
+sed -i '131i <Directory /var/www/html>' default-ssl.conf
 sed -i '132i        Options Indexes FollowSymLinks MultiViews' default-ssl.conf
 sed -i '133i        AllowOverride All' default-ssl.conf
 sed -i '134i </Directory>' default-ssl.conf
