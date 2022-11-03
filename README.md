@@ -16,4 +16,4 @@ To use this environment, you will need [Docker Desktop](https://www.docker.com/p
 
 For unlimited download sign up for a GitHub and a [DockerHub Account](https://hub.docker.com/). 
 
-For more Details how to intall and work with Docker see [INSTALL.md](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md) for Details and Troubleshooting.
+For more Details how to install and work with Docker see [INSTALL.md](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md) for Details and Troubleshooting.
