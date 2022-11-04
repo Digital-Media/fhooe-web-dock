@@ -58,23 +58,11 @@ You can clean up using Docker Desktop
 - Remove Images for mariadb, php-apache and phpmyadmin
 - Remove Volume fhooe-web-dock_dbdata
 
-### Clean Re-Install in Commandline
+### Clean Re-Install with Script
 - Go to directory, where docker-compose.yml is installed.
-- Type \.CleanReinstall.sh
-  This will execute the following commands in one go.
+- Type .\CleanReinstall.sh for Linux or MAC or in a Windows Powershell
+- or doubleclick on CleanReinstall.bat for Windows 
 
-stop and delete containers
-```shell
-docker compose down
-```
-delete all unused images
-```shell
-docker image prune -f
-```
-remove volume
-```shell
-docker volume rm --force fhooe-web-dock_dbdata;
-```
 See [Starting Container](#starting-containers) to start again.
 
 manually deleting only images for fhooe-web-dock
