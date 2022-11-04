@@ -26,6 +26,7 @@ mkdir Docker # if not already exists
 cd Docker
 ```
 `PS path-to-Docker> `
+Replace fhooe-web-dock with the appropriate Docker Repository at https://github.com/Digital-Media for other Docker environments.
 ```shell
 git clone https://github.com/Digital-Media/fhooe-web-dock.git
 ```
