@@ -14,22 +14,27 @@ To use this environment, you will need a few tools installed. Some, like Docker 
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop/) creates and runs the fhooe-web-dock containers. Download and install it for Windows, Mac OS (M1 or Intel) or Linux. 
 
-- Windows: [Installation Instructions + Installer Download](https://docs.docker.com/desktop/install/windows-install/) | Chocolatey: `choco install docker-desktop` | Winget: `winget install -e --id Docker.DockerDesktop`
-- Mac OS X: [Installation Instruction + Installer Download](https://docs.docker.com/desktop/install/mac-install/) | Homebrew: `brew install --cask docker`
+- Windows: [Installation Instructions + Installer Download](https://docs.docker.com/desktop/install/windows-install/) | [Chocolatey](https://chocolatey.org/): `choco install docker-desktop` | [Winget](https://winget.run/): `winget install -e --id Docker.DockerDesktop`
+- Mac OS X: [Installation Instruction + Installer Download](https://docs.docker.com/desktop/install/mac-install/) | [Homebrew](https://brew.sh/): `brew install --cask docker`
 - Linux: [Installation Instructions + Package Download](https://docs.docker.com/desktop/install/linux-install/)
+
+To avoid rate limit issues when downloading the involved images from [DockerHub](https://hub.docker.com/), please register for a [free account](https://hub.docker.com/signup) and make sure you're logged in on Docker Desktop.
 
 ### Git
 
 It is also recommended to install Git on your host machine so you can easily update to the latest version of fhooe-web-dock.
 
-- Windows: Installer Download | Chocolatey: `choco install git` | Winget: 
+- Windows: [Installer Download](https://gitforwindows.org/) | Chocolatey: `choco install git` | Winget: `winget install -e --id Git.Git`
 
 - Mac OS X: Xcode Commandline Tools: `xcode-select –install` | Homebrew: `brew install git`
 
-  
+- Linux: Debian/Ubuntu: `apt-get install git`
 
-  
+### Running the Containers
 
-  For unlimited download sign up for a GitHub and a [DockerHub Account](https://hub.docker.com/). 
+### Rebuilding the Containers
 
-For more Details how to install and work with Docker see [INSTALL.md](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md) for Details and Troubleshooting.
+### Additional Information
+
+For more details on how to install and work with fhooe-web-dock, see [INSTALL.md](INSTALL.md).
+
