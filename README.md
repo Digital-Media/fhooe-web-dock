@@ -4,7 +4,7 @@ This repository provides a Docker environment for web development designed for u
 
 This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.1, [MariaDB](https://hub.docker.com/_/mariadb) 10.7 and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2.0, as well as additional configuration and scripts.
 
-Not familiar with Docker containers or not sure, why to use them? Have a look at the [Introduction](https://www.docker.com/resources/what-container/) first.
+Not familiar with Docker containers or not sure why to use them? Have a look at the [Introduction](https://www.docker.com/resources/what-container/) first.
 
 ## Installation of Software and Prerequisites
 
@@ -36,7 +36,7 @@ Use a command prompt such as Windows Powershell or Terminal to enter the Docker 
 
 ### Building and Starting the Containers
 
-```bash
+```shell
 docker compose up -d
 ```
 
@@ -48,13 +48,13 @@ This will create three containers:
 
 ### Stopping the Containers
 
-```bash
+```shell
 docker compose stop
 ```
 
 ### Restarting the Containers Without Rebuilding
 
-```bash
+```shell
 docker compose start
 ```
 
@@ -85,6 +85,14 @@ To access the **database**, you must differentiate between access from your host
 
 - External (e.g., connecting to the database from your IDE while developing): Host: `localhost`, port: `6033`
 - Internal (e.g., connecting to the database from your web application): Host: `db`, port: `3306`
+
+For **shell access** to your containers (in this case, the `webapp` container), use the following command:
+
+```shell
+docker exec -it webapp /bin/bash
+```
+
+To access the other containers, replace the container name `webapp` with `mariadb` (database) or `pma` (phpMyAdmin).
 
 ## Additional Information
 
