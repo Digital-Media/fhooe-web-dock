@@ -13,3 +13,4 @@ echo """Create and start the containers again in the background (detached)"
 docker compose up --detach
 
 echo "All finished. Enjoy your updated version of fhooe-web-dock!"
+read -p "Press any key to resume ..."
