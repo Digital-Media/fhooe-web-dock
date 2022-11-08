@@ -1,8 +1,6 @@
 #!/bin/bash
-echo "## Installing PHP Intl extension ##"
 
-#!/bin/bash
-echo "## Installing composer ##"
+echo "## Installing Composer ##"
 cd /tmp
 EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -22,3 +20,12 @@ echo $RESULT
 
 mv composer.phar /usr/local/bin/composer
 chown root:root /usr/local/bin/composer
+
+echo "## Creating xdebug.ini ##"
+tee -a /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini <<EOF
+
+[xdebug]
+xdebug.mode=debug,develop,coverage
+xdebug.discover_client_host=1
+xdebug.client_host=host.docker.internal
+EOF
