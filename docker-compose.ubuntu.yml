@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  sshd:
+    build: 
+      dockerfile: Dockerfile-ubuntu
+    container_name: ubuntu
+    command: ["sleep","infinity"]
+    volumes:
+      - ubuntudata:/home/student
+    environment:
+      LANG: C.UTF-8
+      SHELL: /bin/bash
+    ports:
+      - "2222:22"
+volumes:
+  ubuntudata:
+networks:
+  default:
+    name: ubuntunet
