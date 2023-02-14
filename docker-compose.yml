@@ -25,7 +25,6 @@ services:
     container_name: webapp
     volumes:
       - ./webapp:/var/www/html
-      - ./src/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     ports:
       - "8080:80"
       - "7443:443"
@@ -44,15 +43,14 @@ services:
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
-      PMA_ARBITRARY: 1
+      PMA_USER: onlineshop
+      PMA_PASSWORD: geheim
     restart: always
     ports:
-      - 8082:80 # for reasons I do not understand it doesn't work with 8081:80
+      - 8082:80
       - 8443:443
 volumes:
   dbdata:
 networks:
   default:
     name: webnet
-
-# https://stackoverflow.com/questions/59689856/docker-php-access-control-allow-origin-cors
