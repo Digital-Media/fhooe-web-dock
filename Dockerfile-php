@@ -11,6 +11,8 @@ RUN apt-get update -y \
 						  libjpeg62-turbo-dev \
 		                  libpng-dev \
                           libpq-dev \
+						  locales \
+						  locales-all \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_pgsql pgsql \
     && docker-php-ext-install pdo_mysql \
@@ -28,3 +30,7 @@ RUN apt-get update -y \
     && /src/install-PHP+Tools.sh \
 	&& /src/install-Apache2.sh \
     && /src/switchhttps.sh
+# Set environment variables
+ENV LC_ALL en_US.utf8
+ENV LANG en_US.utf8
+ENV LANGUAGE en_US.utf8
