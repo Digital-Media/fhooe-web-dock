@@ -63,7 +63,7 @@ docker compose start
 Should your containers malfunction or you want to rebuild them from the latest official images (due to new versions), you can use the provided `CleanInstall` script.
 
 - Windows: Double-click `CleanReinstall.bat` or run the command in a Powershell/command prompt.
-- Mac OS X/Linux: Run `./CleanReinstall.sh` from a terminal/shell. If the file is not executable, run `chmod +x CleanInstall.sh` first.
+- Mac OS X/Linux: Run `./CleanReinstall.sh` from a terminal/shell. If the file is not executable, run `chmod +x CleanReinstall.sh` first.
 
 Warning: this script assumes that you're only using fhooe-web-dock on your system. It will affect other Docker environments as well!
 
