@@ -21,6 +21,16 @@ echo $RESULT
 mv composer.phar /usr/local/bin/composer
 chown root:root /usr/local/bin/composer
 
+echo "## Installing PHP_CodeSniffer ##"
+cd /tmp
+curl -s -Ol https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+curl -s -Ol https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
+
+mv phpcs.phar /usr/local/bin/phpcs
+mv phpcbf.phar /usr/local/bin/phpcbf
+chown root:root /usr/local/bin/phpcs /usr/local/bin/phpcbf
+chmod 755 /usr/local/bin/phpcs /usr/local/bin/phpcbf
+
 echo "## Creating xdebug.ini ##"
 tee -a /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini <<EOF
 
