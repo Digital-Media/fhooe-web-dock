@@ -50,6 +50,15 @@ Result
 ```
 ## Refreshing containers after bug fixing
 ```shell
+cd <path-where-your-Docker-should-reside>/Docker
+```
+```shell
+cd fhooe-web-dock
+```
+```shell
+git pull
+```
+```shell
 docker compose up --force-recreate --build -d
 ```
 ## Cleaning Up and Re-Install
