@@ -58,6 +58,7 @@ cd fhooe-web-dock
 ```shell
 git pull
 ```
+If one accidentially misconfigured git locally and `git pull` doesn't work correctly use `git reset --hard` to reset local git installation.
 ```shell
 docker compose up --force-recreate --build -d
 ```
