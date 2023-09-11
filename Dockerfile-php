@@ -5,7 +5,8 @@ LABEL maintainer="mhteaching2703@gmail.com"
 
 COPY src /src
 # Install scripts
-RUN apt-get update -y \
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
+	&& apt-get update -y \
     && apt-get install -y libicu-dev \
 					      libfreetype6-dev \
 						  libjpeg62-turbo-dev \
