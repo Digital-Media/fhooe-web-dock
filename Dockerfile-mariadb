@@ -1,7 +1,14 @@
 # Linux x64
 FROM mariadb:10.7
 
-LABEL maintainer="mhteaching2703@gmail.com"
+LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
+      org.opencontainers.image.authors="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
+      org.opencontainers.image.url="https://github.com/Digital-Media/fhooe-web-dock.git" \
+      org.opencontainers.image.vendor="University of Applied Sciences Upper Austria, Department of Digital Media" \
+      org.opencontainers.image.licenses="MIT License" \
+      org.opencontainers.image.ref.name="fhooe-web-dock-db:latest" \
+      org.opencontainers.image.title="fhooe-web-dock MariaDB" \
+      org.opencontainers.image.description="MariaDB Image of the fhooe-web-dock environment"
 
 COPY src /src
 # Install scripts
