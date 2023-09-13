@@ -1,5 +1,5 @@
 # Linux x64 and MAC Intel and MAC M1
-FROM phpmyadmin
+FROM phpmyadmin:5
 
 LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
       org.opencontainers.image.authors="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
@@ -11,8 +11,9 @@ LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" 
       org.opencontainers.image.description="phpMyAdmin Image of the fhooe-web-dock environment"
 
 COPY src /src
+
 # Install scripts
-RUN    cd /src \
+RUN cd /src \
     && chmod 755 *.sh \
     && /src/install-apt.sh \
     && /src/basic_tools.sh \
