@@ -11,6 +11,7 @@ LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" 
       org.opencontainers.image.description="Apache & PHP Image of the fhooe-web-dock environment"
 
 COPY src /src
+
 # Install scripts
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
 	&& apt-get update -y \
@@ -39,6 +40,7 @@ RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
     && /src/install-PHP+Tools.sh \
 	&& /src/install-Apache2.sh \
     && /src/switchhttps.sh
+
 # Set environment variables
 ENV LC_ALL en_US.utf8
 ENV LANG en_US.utf8
