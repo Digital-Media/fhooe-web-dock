@@ -2,13 +2,13 @@
 
 This repository provides a Docker environment for web development designed for use in web development classes at the [Upper Austria University of Applied Sciences (FH Oberösterreich), Hagenberg Campus](https://www.fh-ooe.at/en/hagenberg-campus/).
 
-This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.1, [MariaDB](https://hub.docker.com/_/mariadb) 10.7 and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2.0, as well as additional configuration and scripts.
+This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.2, [MariaDB](https://hub.docker.com/_/mariadb) 11.1, and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2, as well as additional configuration and scripts.
 
-Not familiar with Docker containers or not sure why to use them? Have a look at the [Introduction](https://www.docker.com/resources/what-container/) first.
+Do you need to familiarize yourself with Docker containers, or are you wondering why you should use them? Have a look at the [Introduction](https://www.docker.com/resources/what-container/) first.
 
 ## Installation of Software and Prerequisites
 
-To use this environment, you will need a few tools installed. Some, like Docker Desktop, are mandatory, and others are recommended.
+To use this environment, you will need to install a few tools. Some, like Docker Desktop, are mandatory, and others are recommended.
 
 ### Docker Desktop
 
@@ -65,16 +65,16 @@ Should your containers malfunction or you want to rebuild them from the latest o
 - Windows: Double-click `CleanReinstall.bat` or run the command in a Powershell/command prompt.
 - Mac OS X/Linux: Run `./CleanReinstall.sh` from a terminal/shell. If the file is not executable, run `chmod +x CleanReinstall.sh` first.
 
-Warning: this script assumes that you're only using fhooe-web-dock on your system. It will affect other Docker environments as well!
+Warning: This script assumes you're only using fhooe-web-dock on your system. It will affect other Docker environments as well!
 
 1. Stop all running fhooe-web-dock-containers (`docker compose down -v`).
-2. Remove all unused images, containers, networks and volumes (`docker system prune --volumes -a -f`). This will also affect other Docker environments on your system!
+2. Remove all unused images, containers, networks, and volumes (`docker system prune --volumes -a -f`). This will also affect other Docker environments on your system!
 3. Update fhooe-web-dock from GitHub (`git pull`).
 4. Create and start the containers again (`docker compose up -d`).
 
 ## Working With the Containers
 
-Once all containers have been started, you'll notice a subdirectory called `webapp` in your fhooe-web-dock directory. This directory is mapped to `/var/www/html` in the `webapp` container. Since this is Apache's document root, all files and projects you put in there will be directly available on the web server.
+Once all containers have been started, you'll notice a subdirectory called `webapp` in your fhooe-web-dock directory. This directory is mapped to `/var/www/html` in the `webapp` container. Since this is Apache's document root, all files, and projects you put in there will be directly available on the web server.
 
 You can access the **web server** via HTTP or HTTPS. Be advised the HTTPS certificate is self-signed and will trigger a warning in your browser.
 
@@ -96,9 +96,9 @@ To access the other containers, replace the container name `webapp` with `mariad
 
 ## Additional Information
 
-For more details on how to install and work with fhooe-web-dock, see [INSTALL.md](INSTALL.md).
+For more details on installing and working with fhooe-web-dock, see [INSTALL.md](INSTALL.md).
 
-Are you having trouble with fhooe-web-dock? Check the [wiki](https://github.com/Digital-Media/fhooe-web-dock/wiki) for known solutions or open an [issue](https://github.com/Digital-Media/fhooe-web-dock/issues).
+Do you need help with fhooe-web-dock? Check the [wiki](https://github.com/Digital-Media/fhooe-web-dock/wiki) for known solutions or open an [issue](https://github.com/Digital-Media/fhooe-web-dock/issues).
 
 ## Other fhooe Docker Environments
 
