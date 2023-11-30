@@ -1,5 +1,5 @@
 # Linux x64
-FROM php:8.2-apache
+FROM php:8.3-apache
 
 LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
       org.opencontainers.image.authors="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
@@ -31,7 +31,9 @@ RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
 	&& docker-php-ext-install gettext \
 	&& docker-php-ext-configure gd --with-freetype --with-jpeg \
 	&& docker-php-ext-install -j$(nproc) gd \
+	&& pecl config-set preferred_state beta\
 	&& pecl install xdebug \
+	&& pecl config-set preferred_state stable\
 	&& docker-php-ext-enable xdebug \
     && cd /src \
     && chmod 755 *.sh \
