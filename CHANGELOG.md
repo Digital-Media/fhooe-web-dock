@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Switched PHP image to 8.3.
+- Switched to Xdebug 3.3.
+
 ### Deprecated
 
 ### Removed
@@ -33,3 +36,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.0.0...HEAD
 [1.0.0]: https://github.com/Digital-Media/fhooe-web-dock/releases/tag/1.0.0
+
