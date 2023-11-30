@@ -2,7 +2,7 @@
 
 This repository provides a Docker environment for web development designed for use in web development classes at the [Upper Austria University of Applied Sciences (FH Oberösterreich), Hagenberg Campus](https://www.fh-ooe.at/en/hagenberg-campus/).
 
-This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.2, [MariaDB](https://hub.docker.com/_/mariadb) 11.2, and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2, as well as additional configuration and scripts.
+This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.3, [MariaDB](https://hub.docker.com/_/mariadb) 11.2, and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2, as well as additional configuration and scripts.
 
 Do you need to familiarize yourself with Docker containers, or are you wondering why you should use them? Have a look at the [Introduction](https://www.docker.com/resources/what-container/) first.
 
