@@ -1,5 +1,5 @@
 # Linux x64 and MAC Intel and MAC M1
-FROM phpmyadmin:5
+FROM phpmyadmin:5.2
 
 LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
       org.opencontainers.image.authors="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \

@@ -1,5 +1,5 @@
 # Linux x64
-FROM mariadb:11
+FROM mariadb:11.2
 
 LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
       org.opencontainers.image.authors="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \

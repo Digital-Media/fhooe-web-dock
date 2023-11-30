@@ -1,5 +1,5 @@
 # Linux x64
-FROM php:8-apache
+FROM php:8.2-apache
 
 LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
       org.opencontainers.image.authors="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
