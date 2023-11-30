@@ -2,7 +2,7 @@
 
 This repository provides a Docker environment for web development designed for use in web development classes at the [Upper Austria University of Applied Sciences (FH Oberösterreich), Hagenberg Campus](https://www.fh-ooe.at/en/hagenberg-campus/).
 
-This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.2, [MariaDB](https://hub.docker.com/_/mariadb) 11.1, and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2, as well as additional configuration and scripts.
+This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.2, [MariaDB](https://hub.docker.com/_/mariadb) 11.2, and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2, as well as additional configuration and scripts.
 
 Do you need to familiarize yourself with Docker containers, or are you wondering why you should use them? Have a look at the [Introduction](https://www.docker.com/resources/what-container/) first.
 
@@ -12,9 +12,9 @@ To use this environment, you will need to install a few tools. Some, like Docker
 
 ### Docker Desktop
 
-[Docker Desktop](https://www.docker.com/products/docker-desktop/) creates and runs the fhooe-web-dock containers. Download and install it for Windows, Mac OS (M1 or Intel) or Linux. 
+[Docker Desktop](https://www.docker.com/products/docker-desktop/) creates and runs the *fhooe-web-dock* containers. Download and install it for Windows, Mac OS (M1 or Intel) or Linux. 
 
-- Windows: [Installation Instructions + Installer Download](https://docs.docker.com/desktop/install/windows-install/) | [Chocolatey](https://chocolatey.org/): `choco install docker-desktop` | [Winget](https://winget.run/): `winget install -e --id Docker.DockerDesktop`
+- Windows: [Installation Instructions + Installer Download](https://docs.docker.com/desktop/install/windows-install/) | [Chocolatey](https://chocolatey.org/): `choco install docker-desktop` | [winget](https://winget.run/): `winget install -e --id Docker.DockerDesktop`
 - Mac OS X: [Installation Instruction + Installer Download](https://docs.docker.com/desktop/install/mac-install/) | [Homebrew](https://brew.sh/): `brew install --cask docker`
 - Linux: [Installation Instructions + Package Download](https://docs.docker.com/desktop/install/linux-install/)
 
@@ -22,9 +22,9 @@ To avoid rate limit issues when downloading the underlying images from [Docker H
 
 ### Git
 
-Installing Git on your host machine is also recommended so you can easily update to the latest version of fhooe-web-dock.
+Installing Git on your host machine is also recommended so you can easily update to the latest version of *fhooe-web-dock*.
 
-- Windows: [Installer Download](https://gitforwindows.org/) | Chocolatey: `choco install git` | Winget: `winget install -e --id Git.Git`
+- Windows: [Installer Download](https://gitforwindows.org/) | Chocolatey: `choco install git` | winget: `winget install -e --id Git.Git`
 
 - Mac OS X: Xcode Commandline Tools: `xcode-select –install` | Homebrew: `brew install git`
 
@@ -32,7 +32,7 @@ Installing Git on your host machine is also recommended so you can easily update
 
 ## Running the Containers
 
-Use a command prompt such as Windows Powershell or Terminal to enter the Docker commands. All commands must be entered in your local fhooe-web-dock directory.
+Use a command prompt such as Windows PowerShell or Terminal to enter the Docker commands. All commands must be entered in your local *fhooe-web-dock* directory.
 
 ### Building and Starting the Containers
 
@@ -62,19 +62,19 @@ docker compose start
 
 Should your containers malfunction or you want to rebuild them from the latest official images (due to new versions), you can use the provided `CleanInstall` script.
 
-- Windows: Double-click `CleanReinstall.bat` or run the command in a Powershell/command prompt.
+- Windows: Double-click `CleanReinstall.bat` or run the command in a PowerShell/command prompt.
 - Mac OS X/Linux: Run `./CleanReinstall.sh` from a terminal/shell. If the file is not executable, run `chmod +x CleanReinstall.sh` first.
 
-Warning: This script assumes you're only using fhooe-web-dock on your system. It will affect other Docker environments as well!
+:warning: Warning: This script assumes you only use *fhooe-web-dock* on your system. It will affect other Docker environments as well!
 
-1. Stop all running fhooe-web-dock-containers (`docker compose down -v`).
+1. Stop all running *fhooe-web-dock* containers (`docker compose down -v`).
 2. Remove all unused images, containers, networks, and volumes (`docker system prune --volumes -a -f`). This will also affect other Docker environments on your system!
-3. Update fhooe-web-dock from GitHub (`git pull`).
+3. Update *fhooe-web-dock* from GitHub (`git pull`).
 4. Create and start the containers again (`docker compose up -d`).
 
 ## Working With the Containers
 
-Once all containers have been started, you'll notice a subdirectory called `webapp` in your fhooe-web-dock directory. This directory is mapped to `/var/www/html` in the `webapp` container. Since this is Apache's document root, all files, and projects you put in there will be directly available on the web server.
+Once all containers have been started, you'll notice a subdirectory called `webapp` in your *fhooe-web-dock* directory. This directory is mapped to `/var/www/html` in the `webapp` container. Since this is Apache's document root, all files and projects you put in there will be directly available on the web server.
 
 You can access the **web server** via HTTP or HTTPS. Be advised the HTTPS certificate is self-signed and will trigger a warning in your browser.
 
@@ -96,9 +96,9 @@ To access the other containers, replace the container name `webapp` with `mariad
 
 ## Additional Information
 
-For more details on installing and working with fhooe-web-dock, see [INSTALL.md](INSTALL.md).
+For more details on installing and working with *fhooe-web-dock*, see [INSTALL.md](INSTALL.md).
 
-Do you need help with fhooe-web-dock? Check the [wiki](https://github.com/Digital-Media/fhooe-web-dock/wiki) for known solutions or open an [issue](https://github.com/Digital-Media/fhooe-web-dock/issues).
+Do you need help with *fhooe-web-dock*? Check the [wiki](https://github.com/Digital-Media/fhooe-web-dock/wiki) for known solutions or open an [issue](https://github.com/Digital-Media/fhooe-web-dock/issues).
 
 ## Other fhooe Docker Environments
 
