@@ -1,6 +1,7 @@
-version: '3.9'
+version: "3.9"
 
 services:
+  # MariaDB/MySQL Service
   db:
     build: 
       dockerfile: Dockerfile-mariadb
@@ -8,17 +9,19 @@ services:
     volumes:
       - ./init:/docker-entrypoint-initdb.d
       - dbdata:/var/lib/mysql
-    environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: 1
-      MYSQL_DATABASE: onlineshop
-      MYSQL_USER: onlineshop
-      MYSQL_PASSWORD: geheim
-      MYSQL_ROOT_HOST: "%"
-      LANG: C.UTF-8
     ports:
       - "6033:3306"
+    # Values for environment variables are stored in .env file
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: ${MYSQL_RANDOM_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST}
+      LANG: ${LANG}
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always
+    # Apache/PHP Service
   php-apache:
     build: 
       dockerfile: Dockerfile-php
@@ -28,29 +31,36 @@ services:
     ports:
       - "8080:80"
       - "7443:443"
+    depends_on:
+      - db
+    # Values for environment variables are stored in .env file
     environment:
       DB_HOST: db:3306
-      DB_USER: onlineshop
-      DB_NAME: onlineshop
-      DB_PASSWORD: geheim
+      DB_NAME: ${MYSQL_DATABASE}
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
     restart: always
+  # phpMyAdmin Service
   phpmyadmin:
     build:
       dockerfile: Dockerfile-phpmyadmin
     container_name: pma
-    links:
+    ports:
+      - "8082:80"
+      - "8443:443"
+    depends_on:
       - db
+    # Values for environment variables are stored in .env file
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
-      PMA_USER: onlineshop
-      PMA_PASSWORD: geheim
+      PMA_USER: ${MYSQL_USER}
+      PMA_PASSWORD: ${MYSQL_PASSWORD}
     restart: always
-    ports:
-      - 8082:80
-      - 8443:443
+
 volumes:
   dbdata:
+
 networks:
   default:
     name: webnet
