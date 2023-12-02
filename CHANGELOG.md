@@ -9,16 +9,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `.env` file with database connection parameters.
+
 ### Changed
 
 - Switched PHP image to 8.3.
 - Switched to Xdebug 3.3.
+- `docker-compose.yml` now uses variables from the `.env` file for shared values like database name, user and password.
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- Syntax cleanup in `docker-compose.yml`.
 
 ### Security
 
