@@ -1,0 +1,17 @@
+# JetBrains IDE project directory
+.idea/
+
+# Visual Studio Code directory
+.vscode/
+
+# Local history for Visual Studio Code
+.history/
+
+# Composer executable
+composer.phar
+
+# Dependency directory
+/vendor/
+
+# Template cache
+/cache/
