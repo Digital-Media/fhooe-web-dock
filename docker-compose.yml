@@ -6,6 +6,7 @@ services:
     build: 
       dockerfile: Dockerfile-mariadb
     container_name: mariadb
+    hostname: mariadb
     volumes:
       - ./init:/docker-entrypoint-initdb.d
       - dbdata:/var/lib/mysql
@@ -26,6 +27,7 @@ services:
     build: 
       dockerfile: Dockerfile-php
     container_name: webapp
+    hostname: webapp
     volumes:
       - ./webapp:/var/www/html
     ports:
@@ -45,6 +47,7 @@ services:
     build:
       dockerfile: Dockerfile-phpmyadmin
     container_name: pma
+    hostname: pma
     ports:
       - "8082:80"
       - "8443:443"
