@@ -18,8 +18,8 @@
 
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="index.php" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="dashboard/phpinfo.php" class="nav-link">PHP Info</a></li>
-            <li class="nav-item"><a href="http://localhost:8082/" class="nav-link">phpMyAdmin</a></li>
+            <li class="nav-item"><a href="dashboard/phpinfo.php" class="nav-link" target="_blank">PHP Info</a></li>
+            <li class="nav-item"><a href="http://localhost:8082/" class="nav-link" target="_blank">phpMyAdmin</a></li>
             <li class="nav-item dropdown">
                 <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
                         id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown"
@@ -94,7 +94,10 @@
                             {% for directory in directories %}
                                 <li>
                                     <a href="{{ directory }}" class="icon-link">
-                                        <i class="bi-folder-fill"></i>{{ directory }}
+                                        <svg class="bi">
+                                            <use href="dashboard/views/images/bootstrap-icons.svg#folder-fill"></use>
+                                        </svg>
+                                        {{ directory }}
                                     </a>
                                 </li>
                             {% endfor %}
