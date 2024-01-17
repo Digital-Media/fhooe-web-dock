@@ -10,12 +10,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - `.env` file with database connection parameters.
+- Dashboard in the `webapp` directory. It is shown when the webserver is accessed and lists all subdirectories in `webapp` and shows the most important information.
+- APT cache is now cleaned after installing additional packages.
 
 ### Changed
 
 - Switched PHP image to 8.3.
 - Switched to Xdebug 3.3.
 - `docker-compose.yml` now uses variables from the `.env` file for shared values like database name, user and password.
+- `apt-get` calls now use the parameter `--no-install-recommends` to avoid unnecessary (recommended) package installs.
 
 ### Deprecated
 
@@ -24,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Syntax cleanup in `docker-compose.yml`.
+- Syntax cleanup and comments in `Dockerfile-php`, `Dockerfile-mariadb` and `Dockerfile-phpmyadmin`.
 
 ### Security
 
