@@ -1,6 +1,7 @@
-# Linux x64 and MAC Intel and MAC M1
+# Use the official phpMyAdmin 5.2 image
 FROM phpmyadmin:5.2
 
+# Add image metadata in Open Container Format (OCF) compliant format
 LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
       org.opencontainers.image.authors="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
       org.opencontainers.image.url="https://github.com/Digital-Media/fhooe-web-dock.git" \
@@ -8,11 +9,12 @@ LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" 
       org.opencontainers.image.licenses="MIT License" \
       org.opencontainers.image.ref.name="fhooe-web-dock-phpmyadmin:latest" \
       org.opencontainers.image.title="fhooe-web-dock phpMyAdmin" \
-      org.opencontainers.image.description="phpMyAdmin Image of the fhooe-web-dock environment"
+      org.opencontainers.image.description="phpMyAdmin image of the fhooe-web-dock environment"
 
+# Copy additional intialization scripts to the image
 COPY src /src
 
-# Install scripts
+# Run initialization scripts
 RUN cd /src \
     && chmod 755 *.sh \
     && /src/install-apt.sh \
