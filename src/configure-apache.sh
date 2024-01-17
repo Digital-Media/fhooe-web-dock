@@ -1,5 +1,6 @@
 #!/bin/bash
-# Apache2
+
+echo "## Configuring Apache and root directory ##"
 echo ServerName localhost >> /etc/apache2/apache2.conf
 a2enmod rewrite
 
