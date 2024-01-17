@@ -10,8 +10,9 @@
 # Composer executable
 composer.phar
 
-# Dependency directory
-/vendor/
+# Explicitly keep Composer's vendor directory
+# We want the dashboard to be functional without running Composer
+!/vendor/
 
 # Template cache
 /cache/
