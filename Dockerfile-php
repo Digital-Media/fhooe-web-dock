@@ -38,10 +38,10 @@ RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
     && cd /src \
     && chmod 755 *.sh \
     && /src/install-apt.sh \
-    && /src/basic_tools.sh \
-    && /src/install-PHP+Tools.sh \
-    && /src/install-Apache2.sh \
-    && /src/switchhttps.sh \
+    && /src/install-cli-tools.sh \
+    && /src/install-php-tools.sh \
+    && /src/configure-apache.sh \
+    && /src/configure-https.sh \
     && rm -rf /var/lib/apt/lists/*
 
 # Set environment variables

@@ -18,4 +18,4 @@ COPY src /src
 RUN cd /src \
     && chmod 755 *.sh \
     && /src/install-apt.sh \
-    && /src/basic_tools.sh
+    && /src/install-cli-tools.sh
