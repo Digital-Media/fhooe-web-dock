@@ -74,7 +74,7 @@ Should your containers malfunction or you want to rebuild them from the latest o
 
 ## Working With the Containers
 
-Once all containers have been started, you'll notice a subdirectory called `webapp` in your *fhooe-web-dock* directory. This directory is mapped to `/var/www/html` in the `webapp` container. Since this is Apache's document root, all files and projects you put in there will be directly available on the web server.
+Once all containers have been started, you'll notice a subdirectory called `webapp` in your *fhooe-web-dock* directory. This directory is mapped to `/var/www/html` in the `webapp` container. Since this is Apache's document root, all files and projects you put in there will be directly available on the web server. The directory initially contains the dashboard (`index.php` and directory `/dashboard`) and a `README.md`.
 
 You can access the **web server** via HTTP or HTTPS. Be advised the HTTPS certificate is self-signed and will trigger a warning in your browser.
 
