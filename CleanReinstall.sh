@@ -2,7 +2,7 @@
 echo "Stopping all running fhooe-web-dock containers"
 docker compose stop
 
-echo "These containers will be deleted together with their volumes and images"
+echo "These containers will be deleted together with their volumes and images and afterwards recreated:"
 docker ps -f "status=exited"
 
 while true; do
@@ -13,12 +13,12 @@ while true; do
         [Yy]* ) 
             break;;  # Proceed if the answer is Y or y
         [Nn]* ) 
-            echo "Containers, images and volumes are not removed. Restarting..."
+            echo "Containers, images and volumes are not removed. Keeping the current versions and restarting..."
             docker compose start
             read -p "Press any key to exit ..."
             exit 1;;
         * ) 
-            echo "Please answer Y or n.";;  # Ask again for any other input
+            echo "Please answer Y or n to continue.";;  # Ask again for any other input
     esac
 done
 
@@ -36,5 +36,3 @@ docker compose up --detach
 
 echo "All finished. Enjoy your updated version of fhooe-web-dock!"
 read -p "Press any key to exit ..."
-
-
