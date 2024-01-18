@@ -17,6 +17,7 @@
     "require": {
         "php": "^8.3",
         "ext-mbstring": "*",
+        "ext-pdo": "*",
         "twig/twig": "^3.8"
     },
     "minimum-stability": "stable",

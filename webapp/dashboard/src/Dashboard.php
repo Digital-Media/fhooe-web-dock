@@ -2,6 +2,8 @@
 
 namespace Fhooe\WebDockDashboard;
 
+use PDO;
+use PDOException;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -25,6 +27,41 @@ class Dashboard
     private string $webappDirectory;
 
     /**
+     * @var string The name of the default database.
+     */
+    private const dbName = "onlineshop";
+
+    /**
+     * @var string The name of the database user.
+     */
+    private const dbUser = "onlineshop";
+
+    /**
+     * @var string The password of the database user.
+     */
+    private const dbPassword = "geheim";
+
+    /**
+     * @var string The internal host of the database.
+     */
+    private const dbHostInternal = "db";
+
+    /**
+     * @var string The external host of the database.
+     */
+    private const dbHostExternal = "localhost";
+
+    /**
+     * @var string The internal port of the database.
+     */
+    private const dbPortInternal = "3306";
+
+    /**
+     * @var string The external port of the database.
+     */
+    private const dbPortExternal = "6033";
+
+    /**
      * Creates a new Dashboard instance.
      * @param string $webappDirectory The path to the webapp directory
      */
@@ -36,18 +73,28 @@ class Dashboard
 
     /**
      * Displays the dashboard.
-     * @throws RuntimeError
-     * @throws SyntaxError
-     * @throws LoaderError
+     * @throws RuntimeError If the template cannot be rendered.
+     * @throws SyntaxError If an error occurred during compilation.
+     * @throws LoaderError If an error occurred while loading the template.
      */
     public function display(): void
     {
         $this->twig->display("dashboard.html.twig", [
             "url" => $this->getUrl(),
             "directories" => $this->getWebappDirectories(),
-            "webserver" => $this->getServerVersion(),
-            "php" => $this->getPhpVersion(),
-            "debugger" => $this->getDebuggerVersion()
+            "databaseParameters" => [
+                "name" => self::dbName,
+                "user" => self::dbUser,
+                "password" => self::dbPassword,
+                "hostInternal" => self::dbHostInternal,
+                "portInternal" => self::dbPortInternal,
+                "hostExternal" => self::dbHostExternal,
+                "portExternal" => self::dbPortExternal
+            ],
+            "webserverVersion" => $this->getServerVersion(),
+            "phpVersion" => $this->getPhpVersion(),
+            "debuggerVersion" => $this->getDebuggerVersion(),
+            "databaseVersion" => $this->getDatabaseVersion()
         ]);
     }
 
@@ -147,5 +194,40 @@ class Dashboard
     private function getDebuggerVersion(): string
     {
         return "Xdebug " . phpversion("xdebug");
+    }
+
+    /**
+     * Returns the database version.
+     * @return string The database version.
+     * @throws PDOException If the database connection fails.
+     */
+    private function getDatabaseVersion(): string
+    {
+        $charsetAttr = "SET NAMES utf8 COLLATE utf8_general_ci";
+        $dsn = "mysql:host=" . self::dbHostInternal . ";dbname=" . self::dbName . ";port=" . self::dbPortInternal;
+        $options = [
+            PDO::ATTR_PERSISTENT => true,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+            PDO::MYSQL_ATTR_INIT_COMMAND => $charsetAttr,
+            PDO::MYSQL_ATTR_MULTI_STATEMENTS => false
+        ];
+
+        try {
+            $pdo = new PDO($dsn, self::dbUser, self::dbPassword, $options);
+
+            // Get the version of the database server
+            $version = $pdo->getAttribute(PDO::ATTR_SERVER_VERSION);
+
+            // This results in something like "11.2.2-MariaDB-1:11.2.2+maria~ubu2204"
+            // We only want the version number, so we use a regular expression to extract it
+            if (preg_match('/\d+\.\d+\.\d+/', $version, $matches)) {
+                $version = $matches[0];
+            }
+
+            return "MariaDB " . $version;
+        } catch (PDOException $e) {
+            throw new PDOException($e->getMessage(), (int)$e->getCode());
+        }
     }
 }
