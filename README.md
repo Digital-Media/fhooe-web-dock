@@ -1,4 +1,4 @@
-# fhooe-web-dock – A Docker Environment for Web Development Classes
+# <img src="https://raw.githubusercontent.com/Digital-Media/fhooe-web-dock/204bfcfc1cb16a5f58bfe070f34a4d0a63462147/webapp/dashboard/views/images/fhooe-web-dock-logo.svg" height="32" alt="The fhooe-web-dock Logo: Three containers stacked above each other."> fhooe-web-dock – A Docker Environment for Web Development Classes
 
 This repository provides a Docker environment for web development designed for use in web development classes at the [Upper Austria University of Applied Sciences (FH Oberösterreich), Hagenberg Campus](https://www.fh-ooe.at/en/hagenberg-campus/).
 
@@ -100,7 +100,6 @@ For more details on installing and working with *fhooe-web-dock*, see [INSTALL.m
 
 Do you need help with *fhooe-web-dock*? Check the [wiki](https://github.com/Digital-Media/fhooe-web-dock/wiki) for known solutions or open an [issue](https://github.com/Digital-Media/fhooe-web-dock/issues).
 
-## Other fhooe Docker Environments
+## Thanks
 
-- MongoDB: [fhooe-mongo-dock](https://github.com/Digital-Media/fhooe-mongo-dock)
-- Node.js: [fhooe-node-dock](https://github.com/Digital-Media/fhooe-node-dock)
+Thank you for starting this project [Martin](https://github.com/martinharrer). You will always be remembered.
