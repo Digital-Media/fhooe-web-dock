@@ -29,37 +29,37 @@ class Dashboard
     /**
      * @var string The name of the default database.
      */
-    private const dbName = "onlineshop";
+    private const string dbName = "onlineshop";
 
     /**
      * @var string The name of the database user.
      */
-    private const dbUser = "onlineshop";
+    private const string dbUser = "onlineshop";
 
     /**
      * @var string The password of the database user.
      */
-    private const dbPassword = "geheim";
+    private const string dbPassword = "geheim";
 
     /**
      * @var string The internal host of the database.
      */
-    private const dbHostInternal = "db";
+    private const string dbHostInternal = "db";
 
     /**
      * @var string The external host of the database.
      */
-    private const dbHostExternal = "localhost";
+    private const string dbHostExternal = "localhost";
 
     /**
      * @var string The internal port of the database.
      */
-    private const dbPortInternal = "3306";
+    private const string dbPortInternal = "3306";
 
     /**
      * @var string The external port of the database.
      */
-    private const dbPortExternal = "6033";
+    private const string dbPortExternal = "6033";
 
     /**
      * Creates a new Dashboard instance.
@@ -199,7 +199,6 @@ class Dashboard
     /**
      * Returns the database version.
      * @return string The database version.
-     * @throws PDOException If the database connection fails.
      */
     private function getDatabaseVersion(): string
     {
@@ -226,8 +225,8 @@ class Dashboard
             }
 
             return "MariaDB " . $version;
-        } catch (PDOException $e) {
-            throw new PDOException($e->getMessage(), (int)$e->getCode());
+        } catch (PDOException) {
+            return "MariaDB version not available. Check the connection to the database container.";
         }
     }
 }
