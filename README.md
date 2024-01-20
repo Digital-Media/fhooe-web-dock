@@ -78,7 +78,7 @@ Once all containers have been started, you'll notice a subdirectory called `weba
 
 You can access the **web server** via HTTP or HTTPS. Be advised the HTTPS certificate is self-signed and will trigger a warning in your browser.
 
-- Webserver: http://localhost:8080 (HTTP), https://localhost:7443 (HTTPS)
+- Web server: http://localhost:8080 (HTTP), https://localhost:7443 (HTTPS). This will show you the dashboard.
 - phpMyAdmin: http://localhost:8082 (HTTP), https://localhost:8443 (HTTPS)
 
 To access the **database**, you must differentiate between access from your host system (external) or one of the other containers (internal).
