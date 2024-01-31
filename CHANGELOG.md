@@ -17,7 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Switched PHP image to 8.3.
 - Switched to Xdebug 3.3.
-- `docker-compose.yml` now uses variables from the `.env` file for shared values like database name, user and password.
+- `docker-compose.yml` was renamed to `compose.yaml` (as recommended in the Docker docs).
+- `compose.yaml` now uses variables from the `.env` file for shared values like database name, user, and password.
 - `apt-get` calls now use the parameter `--no-install-recommends` to avoid unnecessary (recommended) package installs.
 
 ### Deprecated
@@ -26,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Syntax cleanup in `docker-compose.yml`.
+- Syntax cleanup in `compose.yaml`.
 - Syntax cleanup and comments in `Dockerfile-php`, `Dockerfile-mariadb` and `Dockerfile-phpmyadmin`.
 
 ### Security
