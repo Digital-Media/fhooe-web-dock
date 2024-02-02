@@ -29,12 +29,12 @@ class Dashboard
     /**
      * @var string The name of the default database.
      */
-    private const string dbName = "onlineshop";
+    private const string dbName = "default";
 
     /**
      * @var string The name of the database user.
      */
-    private const string dbUser = "onlineshop";
+    private const string dbUser = "hypermedia";
 
     /**
      * @var string The password of the database user.
