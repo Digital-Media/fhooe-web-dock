@@ -1,2 +1,2 @@
-CREATE DATABASE IF NOT EXISTS login;
-GRANT ALL PRIVILEGES ON *.* TO 'onlineshop'@'%';
+-- Give the hypermedia user all privileges on all databases
+GRANT ALL PRIVILEGES ON *.* TO 'hypermedia'@'%';
