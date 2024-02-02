@@ -19,4 +19,5 @@ RUN cd /src \
     && chmod 755 *.sh \
     && /src/install-apt.sh \
     && /src/install-cli-tools.sh \
+    && /src/configure-apache.sh \
     && /src/configure-https.sh
