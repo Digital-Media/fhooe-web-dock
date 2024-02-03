@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Helper scripts `rechte.sh` and `bs.sh` were removed due to not being in use.
 - `onlineshop.sql` was removed. Exercise content is not part of this environment anymore.
 - Creation of empty database "login" was removed.
+- Removed `INSTALL.md`. Instructions are solely in `README.md` or the [Wiki](https://github.com/Digital-Media/fhooe-web-dock/wiki).
 
 ### Fixed
 
