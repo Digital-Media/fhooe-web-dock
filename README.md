@@ -96,8 +96,6 @@ To access the other containers, replace the container name `webapp` with `mariad
 
 ## Additional Information
 
-For more details on installing and working with *fhooe-web-dock*, see [INSTALL.md](INSTALL.md).
-
 Do you need help with *fhooe-web-dock*? Check the [wiki](https://github.com/Digital-Media/fhooe-web-dock/wiki) for known solutions or open an [issue](https://github.com/Digital-Media/fhooe-web-dock/issues).
 
 ## Thanks
