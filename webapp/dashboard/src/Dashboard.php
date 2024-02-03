@@ -105,12 +105,8 @@ class Dashboard
     private function getTemplateEngine(): Environment
     {
         $loader = new FilesystemLoader("dashboard/views");
-        return new Environment($loader, [
-            "cache" => "dashboard/cache",
-            "auto_reload" => true
-        ]);
+        return new Environment($loader);
     }
-
 
     /**
      * Scan a directory and return all entries. Filters out . and .. per default.
