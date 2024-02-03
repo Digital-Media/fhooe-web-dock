@@ -74,7 +74,7 @@ Should your containers malfunction or you want to rebuild them from the latest o
 
 ## Working With the Containers
 
-Once all containers have been started, you'll notice a subdirectory called `webapp` in your *fhooe-web-dock* directory. This directory is mapped to `/var/www/html` in the `webapp` container. Since this is Apache's document root, all files and projects you put in there will be directly available on the web server. The directory initially contains the dashboard (`index.php` and directory `/dashboard`) and a `README.md`.
+You'll notice a subdirectory called `webapp` in your *fhooe-web-dock* directory. This directory is mapped to `/var/www/html` in the `webapp` container. Since this is Apache's document root, all files and projects you put in there will be directly available on the web server. The directory initially contains the dashboard (`index.php` and directory `/dashboard`) and a `README.md`.
 
 You can access the **web server** via HTTP or HTTPS. Be advised the HTTPS certificate is self-signed and will trigger a warning in your browser.
 
@@ -93,6 +93,16 @@ docker exec -it webapp /bin/bash
 ```
 
 To access the other containers, replace the container name `webapp` with `mariadb` (database) or `pma` (phpMyAdmin).
+
+### Permissions Inside the `webapp` Directory
+
+`webapp` is a so-called [bind mount](https://docs.docker.com/storage/bind-mounts/) that allows mapping a directory from the host system into the Docker container. On Linux/macOS hosts, permissions are synced. If your local user can access the directory, so does everything within the container. Permissions cannot be synced on Windows hosts, so permission errors in the container will likely occur at some point. Even though you can create files and directories within the `webapp` directory, the web server in the container will not be able to write files or create directories. If this is the case, you need to set permissions manually:
+
+```shell
+chmod -R 777 your/directory/within/webapp
+```
+
+Be advised that 777 permissions (read/write/execute for everyone) should never be used on production systems (which *fhooe-web-dock* isn't per definition).
 
 ## Additional Information
 
