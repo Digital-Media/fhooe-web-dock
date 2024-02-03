@@ -12,11 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `.env` file with database connection parameters.
 - Dashboard in the `webapp` directory. It is shown when the webserver is accessed and lists all subdirectories in `webapp` and shows the most important information.
 - APT cache is now cleaned after installing additional packages.
+- Apache2 server configuration (`ServerName`) is also performed for the `pma` container to match witht the SSH certificate.
 
 ### Changed
 
 - Switched PHP image to 8.3.
 - Switched to Xdebug 3.3.
+- Default username for the database is now "hypermedia" (was "onlineshop").
+- Default database is now "default" (was "onlineshop").
 - `docker-compose.yml` was renamed to `compose.yaml` (as recommended in the Docker docs).
 - `compose.yaml` now uses variables from the `.env` file for shared values like database name, user, and password.
 - `apt-get` calls now use the parameter `--no-install-recommends` to avoid unnecessary (recommended) package installs.
@@ -24,6 +27,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 
 ### Removed
+
+- Helper scripts `rechte.sh` and `bs.sh` were removed due to not being in use.
+- `onlineshop.sql` was removed. Exercise content is not part of this environment anymore.
+- Creation of empty database "login" was removed.
 
 ### Fixed
 
