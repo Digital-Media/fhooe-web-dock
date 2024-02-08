@@ -1,0 +1,32 @@
+ul#webappDirectory {
+    list-style-type: none;
+}
+
+.bi {
+    width: 1em;
+    height: 1em;
+    vertical-align: -.125em;
+    fill: currentcolor;
+}
+
+footer svg {
+    width: auto;
+    height: 1.5rem;
+}
+
+footer svg.bi {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+html[data-bs-theme="light"] footer svg {
+    fill: rgb(0 0 0);
+
+    & .st0 {
+        fill: rgb(196 22 28);
+    }
+}
+
+html[data-bs-theme="dark"] footer svg {
+    fill: rgb(255 255 255);
+}

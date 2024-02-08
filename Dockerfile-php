@@ -1,6 +1,7 @@
-# Linux x64
-FROM php:8.2-apache
+# Use the official PHP 8.3-apache image
+FROM php:8.3-apache
 
+# Add image metadata in Open Container Format (OCF) compliant format
 LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
       org.opencontainers.image.authors="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
       org.opencontainers.image.url="https://github.com/Digital-Media/fhooe-web-dock.git" \
@@ -8,38 +9,40 @@ LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" 
       org.opencontainers.image.licenses="MIT License" \
       org.opencontainers.image.ref.name="fhooe-web-dock-php-apache:latest" \
       org.opencontainers.image.title="fhooe-web-dock Apache & PHP" \
-      org.opencontainers.image.description="Apache & PHP Image of the fhooe-web-dock environment"
+      org.opencontainers.image.description="Apache & PHP image of the fhooe-web-dock environment"
 
+# Copy additional intialization scripts to the image
 COPY src /src
 
-# Install scripts
+# Install additional packages and run initialization scripts
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
-	&& apt-get update -y \
-    && apt-get install -y libicu-dev \
-					      libfreetype6-dev \
-						  libjpeg62-turbo-dev \
-		                  libpng-dev \
-                          libpq-dev \
-						  locales \
-						  locales-all \
-						  gettext \
+    && apt-get update -y \
+    && apt-get install -y --no-install-recommends libicu-dev \
+                                                  libfreetype6-dev \
+                                                  libjpeg62-turbo-dev \
+                                                  libpng-dev \
+                                                  libpq-dev \
+                                                  locales \
+                                                  locales-all \
+                                                  gettext \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_pgsql pgsql \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
-	&& docker-php-ext-install gettext \
-	&& docker-php-ext-configure gd --with-freetype --with-jpeg \
-	&& docker-php-ext-install -j$(nproc) gd \
-	&& pecl install xdebug \
-	&& docker-php-ext-enable xdebug \
+    && docker-php-ext-install gettext \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug \
     && cd /src \
     && chmod 755 *.sh \
     && /src/install-apt.sh \
-    && /src/basic_tools.sh \
-    && /src/install-PHP+Tools.sh \
-	&& /src/install-Apache2.sh \
-    && /src/switchhttps.sh
+    && /src/install-cli-tools.sh \
+    && /src/install-php-tools.sh \
+    && /src/configure-apache.sh \
+    && /src/configure-https.sh \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set environment variables
 ENV LC_ALL en_US.utf8

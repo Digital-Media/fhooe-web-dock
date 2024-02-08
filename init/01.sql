@@ -1,2 +1,0 @@
-CREATE DATABASE IF NOT EXISTS login;
-GRANT ALL PRIVILEGES ON *.* TO 'onlineshop'@'%';

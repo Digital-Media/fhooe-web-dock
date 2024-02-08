@@ -1,0 +1,29 @@
+{
+    "name": "fhooe/web-dock-dashboard",
+    "type": "library",
+    "description": "A simple dashboard for fhooe-web-dock.",
+    "keywords": [
+        "dashboard",
+        "fhooe-web-dock"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wolfgang Hochleitner",
+            "email": "wolfgang.hochleitner@fh-hagenberg.at",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "ext-mbstring": "*",
+        "ext-pdo": "*",
+        "twig/twig": "^3.8"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Fhooe\\WebDockDashboard\\": "src/"
+        }
+    }
+}

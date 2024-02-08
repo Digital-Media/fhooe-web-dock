@@ -8,16 +8,42 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+## [1.1.0] - 2024-02-08
+
+### Added
+
+- `.env` file with database connection parameters.
+- Dashboard in the `webapp` directory. It is shown when the webserver is accessed and lists all subdirectories in `webapp` and shows the most important information.
+- APT cache is now cleaned after installing additional packages.
+- Apache2 server configuration (`ServerName`) is also performed for the `pma` container to match witht the SSH certificate.
 
 ### Changed
 
-### Deprecated
+- Switched PHP image to 8.3.
+- Switched to Xdebug 3.3.
+- Default username for the database is now "hypermedia" (was "onlineshop").
+- Default database is now "default" (was "onlineshop").
+- `docker-compose.yml` was renamed to `compose.yaml` (as recommended in the Docker docs).
+- `compose.yaml` now uses variables from the `.env` file for shared values like database name, user, and password.
+- `apt-get` calls now use the parameter `--no-install-recommends` to avoid unnecessary (recommended) package installs.
 
 ### Removed
 
+- Helper scripts `rechte.sh` and `bs.sh` were removed due to not being in use.
+- `onlineshop.sql` was removed. Exercise content is not part of this environment anymore.
+- Creation of empty database "login" was removed.
+- Removed `INSTALL.md`. Instructions are solely in `README.md` or the [Wiki](https://github.com/Digital-Media/fhooe-web-dock/wiki).
+
 ### Fixed
 
-### Security
+- Syntax cleanup in `compose.yaml`.
+- Syntax cleanup and comments in `Dockerfile-php`, `Dockerfile-mariadb` and `Dockerfile-phpmyadmin`.
 
 ## [1.0.0] - 2023-11-30
 
@@ -31,5 +57,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional tools and configuration for each container: Linux command line tools, Composer, PHP_CS, Xdebug, GitHub CLI
 - Experimental Ubuntu container for shell exercises.
 
-[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/Digital-Media/fhooe-web-dock/releases/tag/1.0.0

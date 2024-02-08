@@ -1,8 +1,8 @@
-# fhooe-web-dock – A Docker Environment for Web Development Classes
+# <img src="https://raw.githubusercontent.com/Digital-Media/fhooe-web-dock/204bfcfc1cb16a5f58bfe070f34a4d0a63462147/webapp/dashboard/views/images/fhooe-web-dock-logo.svg" height="32" alt="The fhooe-web-dock Logo: Three containers stacked above each other."> fhooe-web-dock – A Docker Environment for Web Development Classes
 
 This repository provides a Docker environment for web development designed for use in web development classes at the [Upper Austria University of Applied Sciences (FH Oberösterreich), Hagenberg Campus](https://www.fh-ooe.at/en/hagenberg-campus/).
 
-This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.2, [MariaDB](https://hub.docker.com/_/mariadb) 11.2, and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2, as well as additional configuration and scripts.
+This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.3, [MariaDB](https://hub.docker.com/_/mariadb) 11.2, and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2, as well as additional configuration and scripts.
 
 Do you need to familiarize yourself with Docker containers, or are you wondering why you should use them? Have a look at the [Introduction](https://www.docker.com/resources/what-container/) first.
 
@@ -74,11 +74,11 @@ Should your containers malfunction or you want to rebuild them from the latest o
 
 ## Working With the Containers
 
-Once all containers have been started, you'll notice a subdirectory called `webapp` in your *fhooe-web-dock* directory. This directory is mapped to `/var/www/html` in the `webapp` container. Since this is Apache's document root, all files and projects you put in there will be directly available on the web server.
+You'll notice a subdirectory called `webapp` in your *fhooe-web-dock* directory. This directory is mapped to `/var/www/html` in the `webapp` container. Since this is Apache's document root, all files and projects you put in there will be directly available on the web server. The directory initially contains the dashboard (`index.php` and directory `/dashboard`) and a `README.md`.
 
 You can access the **web server** via HTTP or HTTPS. Be advised the HTTPS certificate is self-signed and will trigger a warning in your browser.
 
-- Webserver: http://localhost:8080 (HTTP), https://localhost:7443 (HTTPS)
+- Web server: http://localhost:8080 (HTTP), https://localhost:7443 (HTTPS). This will show you the dashboard.
 - phpMyAdmin: http://localhost:8082 (HTTP), https://localhost:8443 (HTTPS)
 
 To access the **database**, you must differentiate between access from your host system (external) or one of the other containers (internal).
@@ -94,13 +94,20 @@ docker exec -it webapp /bin/bash
 
 To access the other containers, replace the container name `webapp` with `mariadb` (database) or `pma` (phpMyAdmin).
 
-## Additional Information
+### Permissions Inside the `webapp` Directory
 
-For more details on installing and working with *fhooe-web-dock*, see [INSTALL.md](INSTALL.md).
+`webapp` is a so-called [bind mount](https://docs.docker.com/storage/bind-mounts/) that allows mapping a directory from the host system into the Docker container. On Linux/macOS hosts, permissions are synced. If your local user can access the directory, so does everything within the container. Permissions cannot be synced on Windows hosts, so permission errors in the container will likely occur at some point. Even though you can create files and directories within the `webapp` directory, the web server in the container will not be able to write files or create directories. If this is the case, you need to set permissions manually:
+
+```shell
+chmod -R 777 your/directory/within/webapp
+```
+
+Be advised that 777 permissions (read/write/execute for everyone) should never be used on production systems (which *fhooe-web-dock* isn't per definition).
+
+## Additional Information
 
 Do you need help with *fhooe-web-dock*? Check the [wiki](https://github.com/Digital-Media/fhooe-web-dock/wiki) for known solutions or open an [issue](https://github.com/Digital-Media/fhooe-web-dock/issues).
 
-## Other fhooe Docker Environments
+## Thanks
 
-- MongoDB: [fhooe-mongo-dock](https://github.com/Digital-Media/fhooe-mongo-dock)
-- Node.js: [fhooe-node-dock](https://github.com/Digital-Media/fhooe-node-dock)
+Thank you for starting this project [Martin](https://github.com/martinharrer). You will always be remembered.

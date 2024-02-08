@@ -1,0 +1,18 @@
+# JetBrains IDE project directory
+.idea/
+
+# Visual Studio Code directory
+.vscode/
+
+# Local history for Visual Studio Code
+.history/
+
+# Composer executable
+composer.phar
+
+# Explicitly keep Composer's vendor directory
+# We want the dashboard to be functional without running Composer
+!/vendor/
+
+# Template cache
+/cache/

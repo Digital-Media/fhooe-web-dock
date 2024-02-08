@@ -1,31 +1,38 @@
 #!/bin/bash
-echo "Stop running containers"
+echo "Stopping all running fhooe-web-dock containers"
 docker compose stop
 
-echo "This Containers will be deleted with its volumes and images"
+echo "These containers will be deleted together with their volumes and images and afterwards recreated:"
 docker ps -f "status=exited"
-read -p "Continue? [Y/n]" -r answer;
 
-if [ $answer != "Y" ]
-then
-   echo "Containers, images and volumes are not removed"
-   docker compose start
-   read -p "Press any key to resume ..."
-   exit 1
-else
-  echo "Remove containers"
-  docker compose stop --volumes
+while true; do
+    read -p "Continue? [Y/n] " -r answer
+    answer=${answer:-Y}  # Set default value to Y if no input is provided
 
-  echo "Remove all unused images, containers, networks and volumes"
-  docker system prune --volumes --all --force
+    case $answer in
+        [Yy]* ) 
+            break;;  # Proceed if the answer is Y or y
+        [Nn]* ) 
+            echo "Containers, images and volumes are not removed. Keeping the current versions and restarting..."
+            docker compose start
+            read -p "Press any key to exit ..."
+            exit 1;;
+        * ) 
+            echo "Please answer Y or n to continue.";;  # Ask again for any other input
+    esac
+done
 
-  echo "Update fhooe-web-dock from GitHub"
-  git pull
+echo "Stop all running containers"
+docker compose down --volumes
 
-  echo """Create and start the containers again in the background (detached)"
-  docker compose up --detach
+echo "Remove all unused images, containers, networks and volumes"
+docker system prune --volumes --all --force
 
-  echo "All finished. Enjoy your updated version of fhooe-web-dock!"
-  read -p "Press any key to resume ..."
-fi
+echo "Update fhooe-web-dock from GitHub"
+git pull
 
+echo "Create and start the containers again in the background (detached)"
+docker compose up --detach
+
+echo "All finished. Enjoy your updated version of fhooe-web-dock!"
+read -p "Press any key to exit ..."

@@ -1,6 +1,7 @@
-# Linux x64
+# Use the official MariaDB 11.2 image
 FROM mariadb:11.2
 
+# Add image metadata in Open Container Format (OCF) compliant format
 LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
       org.opencontainers.image.authors="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
       org.opencontainers.image.url="https://github.com/Digital-Media/fhooe-web-dock.git" \
@@ -8,12 +9,13 @@ LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" 
       org.opencontainers.image.licenses="MIT License" \
       org.opencontainers.image.ref.name="fhooe-web-dock-db:latest" \
       org.opencontainers.image.title="fhooe-web-dock MariaDB" \
-      org.opencontainers.image.description="MariaDB Image of the fhooe-web-dock environment"
+      org.opencontainers.image.description="MariaDB image of the fhooe-web-dock environment"
 
+# Copy additional intialization scripts to the image
 COPY src /src
 
-# Install scripts
+# Run initialization scripts
 RUN cd /src \
     && chmod 755 *.sh \
     && /src/install-apt.sh \
-    && /src/basic_tools.sh
+    && /src/install-cli-tools.sh
