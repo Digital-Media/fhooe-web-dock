@@ -14,6 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Security
 
+## [1.1.1] - 2024-03-17
+
+### Changed
+
+- Changed PHP_CodeSniffer's download URL in `install-php-tools.sh` to the new URL described in the [new official repository](https://github.com/PHPCSStandards/PHP_CodeSniffer). See this [announcement](https://github.com/squizlabs/PHP_CodeSniffer/issues/3932) for more information. This allows installing the latest versions again.
+
 ## [1.1.0] - 2024-02-08
 
 ### Added
@@ -57,6 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional tools and configuration for each container: Linux command line tools, Composer, PHP_CS, Xdebug, GitHub CLI
 - Experimental Ubuntu container for shell exercises.
 
-[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.0...HEAD
+[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.1...HEAD
+[1.1.1]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/Digital-Media/fhooe-web-dock/releases/tag/1.0.0

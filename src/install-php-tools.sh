@@ -23,8 +23,8 @@ chown root:root /usr/local/bin/composer
 
 echo "## Installing PHP_CodeSniffer ##"
 cd /tmp
-curl -s -Ol https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
-curl -s -Ol https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
+curl -s -OL https://phars.phpcodesniffer.com/phpcs.phar
+curl -s -OL https://phars.phpcodesniffer.com/phpcbf.phar
 
 mv phpcs.phar /usr/local/bin/phpcs
 mv phpcbf.phar /usr/local/bin/phpcbf
