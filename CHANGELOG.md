@@ -14,6 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Security
 
+## [1.1.2] - 2024-09-11
+
+### Security
+
+- Bumped `twig/twig` dependency for the `dashboard` in `composer.json` to 3.14 due to CVE-2024-45411.
+
 ## [1.1.1] - 2024-03-17
 
 ### Changed
@@ -63,7 +69,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional tools and configuration for each container: Linux command line tools, Composer, PHP_CS, Xdebug, GitHub CLI
 - Experimental Ubuntu container for shell exercises.
 
-[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.1...HEAD
+[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.2...HEAD
+[1.1.2]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/Digital-Media/fhooe-web-dock/releases/tag/1.0.0
