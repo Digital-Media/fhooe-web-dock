@@ -1,8 +1,8 @@
 # <img src="https://raw.githubusercontent.com/Digital-Media/fhooe-web-dock/204bfcfc1cb16a5f58bfe070f34a4d0a63462147/webapp/dashboard/views/images/fhooe-web-dock-logo.svg" height="32" alt="The fhooe-web-dock Logo: Three containers stacked above each other."> fhooe-web-dock – A Docker Environment for Web Development Classes
 
-This repository provides a Docker environment for web development designed for use in web development classes at the [Upper Austria University of Applied Sciences (FH Oberösterreich), Hagenberg Campus](https://www.fh-ooe.at/en/hagenberg-campus/).
+This repository provides a Docker environment for web development designed for use in web development classes at the [Upper Austria University of Applied Sciences (FH Oberösterreich), Hagenberg Campus](https://fh-ooe.at/en/campus-hagenberg).
 
-This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.3, [MariaDB](https://hub.docker.com/_/mariadb) 11.2, and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2, as well as additional configuration and scripts.
+This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.4, [MariaDB](https://hub.docker.com/_/mariadb) 11.6, and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2, as well as additional configuration and scripts.
 
 Do you need to familiarize yourself with Docker containers, or are you wondering why you should use them? Have a look at the [Introduction](https://www.docker.com/resources/what-container/) first.
 
@@ -12,11 +12,11 @@ To use this environment, you will need to install a few tools. Some, like Docker
 
 ### Docker Desktop
 
-[Docker Desktop](https://www.docker.com/products/docker-desktop/) creates and runs the *fhooe-web-dock* containers. Download and install it for Windows, Mac OS (M1 or Intel) or Linux. 
+[Docker Desktop](https://www.docker.com/products/docker-desktop/) creates and runs the *fhooe-web-dock* containers. Download and install it for Windows, macOS (M Series/Silicon or Intel) or Linux. 
 
-- Windows: [Installation Instructions + Installer Download](https://docs.docker.com/desktop/install/windows-install/) | [Chocolatey](https://chocolatey.org/): `choco install docker-desktop` | [winget](https://winget.run/): `winget install -e --id Docker.DockerDesktop`
-- Mac OS X: [Installation Instruction + Installer Download](https://docs.docker.com/desktop/install/mac-install/) | [Homebrew](https://brew.sh/): `brew install --cask docker`
-- Linux: [Installation Instructions + Package Download](https://docs.docker.com/desktop/install/linux-install/)
+- Windows: [Installation Instructions + Installer Download](https://docs.docker.com/desktop/setup/install/windows-install/) | [Chocolatey](https://chocolatey.org/): `choco install docker-desktop` | [winget](https://winget.run/): `winget install -e --id Docker.DockerDesktop`
+- macOS: [Installation Instruction + Installer Download](https://docs.docker.com/desktop/setup/install/mac-install/) | [Homebrew](https://brew.sh/): `brew install --cask docker`
+- Linux: [Installation Instructions + Package Download](https://docs.docker.com/desktop/setup/install/linux/)
 
 To avoid rate limit issues when downloading the underlying images from [Docker Hub](https://hub.docker.com/), please register for a [free account](https://hub.docker.com/signup) and make sure you're logged in on Docker Desktop with it.
 
@@ -96,7 +96,7 @@ To access the other containers, replace the container name `webapp` with `mariad
 
 ### Permissions Inside the `webapp` Directory
 
-`webapp` is a so-called [bind mount](https://docs.docker.com/storage/bind-mounts/) that allows mapping a directory from the host system into the Docker container. On Linux/macOS hosts, permissions are synced. If your local user can access the directory, so does everything within the container. Permissions cannot be synced on Windows hosts, so permission errors in the container will likely occur at some point. Even though you can create files and directories within the `webapp` directory, the web server in the container will not be able to write files or create directories. If this is the case, you need to set permissions manually:
+`webapp` is a so-called [bind mount](https://docs.docker.com/engine/storage/bind-mounts/) that allows mapping a directory from the host system into the Docker container. On Linux/macOS hosts, permissions are synced. If your local user can access the directory, so does everything within the container. Permissions cannot be synced on Windows hosts, so permission errors in the container will likely occur at some point. Even though you can create files and directories within the `webapp` directory, the web server in the container will not be able to write files or create directories. If this is the case, you need to set permissions manually:
 
 ```shell
 chmod -R 777 your/directory/within/webapp
