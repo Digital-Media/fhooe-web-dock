@@ -1,5 +1,5 @@
-# Use the official PHP 8.3-apache image
-FROM php:8.3-apache
+# Use the official PHP 8.4-apache image
+FROM php:8.4-apache
 
 # Add image metadata in Open Container Format (OCF) compliant format
 LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
