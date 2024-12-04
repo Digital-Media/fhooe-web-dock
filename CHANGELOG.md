@@ -10,11 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 ### Changed
 
-- Switched PHP image to 8.3.
+- Switched PHP image to 8.4.
 - Switched to MariaDB 11.6.
 
 ### Deprecated
 ### Removed
+
+- Removed deprecated `version` attribute from `compose.yaml`.
+
 ### Fixed
 ### Security
 
