@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Switched PHP image to 8.3.
+- Switched to MariaDB 11.6.
 
 ### Deprecated
 ### Removed
