@@ -56,9 +56,9 @@
             'dev_requirement' => false,
         ),
         'twig/twig' => array(
-            'pretty_version' => 'v3.14.0',
-            'version' => '3.14.0.0',
-            'reference' => '126b2c97818dbff0cdf3fbfc881aedb3d40aae72',
+            'pretty_version' => 'v3.16.0',
+            'version' => '3.16.0.0',
+            'reference' => '475ad2dc97d65d8631393e721e7e44fb544f0561',
             'type' => 'library',
             'install_path' => __DIR__ . '/../twig/twig',
             'aliases' => array(),
