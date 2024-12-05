@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Switched PHP image to 8.4.
 - Switched to MariaDB 11.6.
+- Dashboard: Updated Twig to 3.16
+- Dashboard: Updated Bootstrap to 5.3.3
 
 ### Deprecated
 ### Removed
