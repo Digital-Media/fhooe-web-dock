@@ -8,12 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
+- Added `IgnoreCase` and `FoldersFirst` options to directory indexing.
+
 ### Changed
 
 - Switched PHP image to 8.4.
 - Switched to MariaDB 11.6.
-- Dashboard: Updated Twig to 3.16
-- Dashboard: Updated Bootstrap to 5.3.3
+- Dashboard: Updated Twig to 3.16.
+- Dashboard: Updated Bootstrap to 5.3.3.
+- Optimized `configure-apache.sh` and `configure-https.sh` scripts.
+- Renamed `install-apt.sh` to `install-repository-tools.sh` and optimized contents.
+- Switched to `ENV key=value` syntax in `Dockerfile-php`.
 
 ### Deprecated
 ### Removed
@@ -21,6 +27,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed deprecated `version` attribute from `compose.yaml`.
 
 ### Fixed
+
+- Syntax cleanup in `Dockerfile-php`, `Dockerfile-mariadb`, `Dockerfile-phpmyadmin`, and `compose.yaml`.
+
 ### Security
 
 ## [1.1.2] - 2024-09-11
