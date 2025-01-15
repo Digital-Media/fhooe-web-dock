@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added `IgnoreCase` and `FoldersFirst` options to directory indexing.
+- The ports for each of the three services are now explicitly bound to 127.0.0.1 to avoid accidental exposure to the network.
 
 ### Changed
 
@@ -20,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Optimized `configure-apache.sh` and `configure-https.sh` scripts.
 - Renamed `install-apt.sh` to `install-repository-tools.sh` and optimized contents.
 - Switched to `ENV key=value` syntax in `Dockerfile-php`.
+- Updated `CleanReinstall.bat` and `CleanReinstall.sh` to only remove containers and images from *fhooe-web-dock* while still forcing a complete rebuild of the images (without cached layers).
 
 ### Deprecated
 ### Removed
