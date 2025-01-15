@@ -22,7 +22,7 @@ To avoid rate limit issues when downloading the underlying images from [Docker H
 
 ### Git
 
-Installing Git on your host machine is also recommended so you can easily update to the latest version of *fhooe-web-dock*.
+It is also recommended that you install Git on your host machine so you can easily update to the latest version of *fhooe-web-dock*.
 
 - Windows: [Installer Download](https://gitforwindows.org/) | Chocolatey: `choco install git` | winget: `winget install -e --id Git.Git`
 
@@ -65,12 +65,15 @@ Should your containers malfunction or you want to rebuild them from the latest o
 - Windows: Double-click `CleanReinstall.bat` or run the command in a PowerShell/command prompt.
 - Mac OS X/Linux: Run `./CleanReinstall.sh` from a terminal/shell. If the file is not executable, run `chmod +x CleanReinstall.sh` first.
 
-:warning: Warning: This script assumes you only use *fhooe-web-dock* on your system. It will affect other Docker environments as well!
+This script does the following:
 
-1. Stop all running *fhooe-web-dock* containers (`docker compose down -v`).
-2. Remove all unused images, containers, networks, and volumes (`docker system prune --volumes -a -f`). This will also affect other Docker environments on your system!
-3. Update *fhooe-web-dock* from GitHub (`git pull`).
-4. Create and start the containers again (`docker compose up -d`).
+1. Stop all running *fhooe-web-dock* containers (`docker compose stop`).
+2. Ask for permission to remove the *fhooe-web-dock* containers and images.
+3. If permisssion is granted, remove images, containers, networks, and volumes (`docker compose down --rmi all --volumes --remove-orphans`).
+4. Removes any other dangling images belonging to *fhooe-web-dock* (`docker image prune --force --filter "label=com.docker.compose.project=%COMPOSE_PROJECT_NAME%"`).
+5. Update *fhooe-web-dock* from GitHub (`git pull`).
+6. Build the images from scratch, ignoring cached layers (`docker compose build --no-cache`).
+7. Create and start the containers again (`docker compose up -d`).
 
 ## Working With the Containers
 
