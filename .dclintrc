@@ -1,0 +1,10 @@
+{
+    "rules": {
+        "require-quotes-in-ports": [
+            1,
+            {
+                "quoteType": "double"
+            }
+        ]
+    }
+}
