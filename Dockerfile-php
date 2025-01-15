@@ -45,6 +45,6 @@ RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
     && rm -rf /var/lib/apt/lists/*
 
 # Set environment variables
-ENV LC_ALL en_US.utf8
-ENV LANG en_US.utf8
-ENV LANGUAGE en_US.utf8
+ENV LC_ALL=en_US.utf8
+ENV LANG=en_US.utf8
+ENV LANGUAGE=en_US.utf8
