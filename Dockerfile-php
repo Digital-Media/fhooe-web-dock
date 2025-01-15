@@ -37,7 +37,7 @@ RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
     && docker-php-ext-enable xdebug \
     && cd /src \
     && chmod 755 *.sh \
-    && /src/install-apt.sh \
+    && /src/install-repository-tools.sh \
     && /src/install-cli-tools.sh \
     && /src/install-php-tools.sh \
     && /src/configure-apache.sh \
