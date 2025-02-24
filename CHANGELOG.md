@@ -15,8 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Switched PHP image to 8.4.
-- Switched to MariaDB 11.6.
-- Dashboard: Updated Twig to 3.16.
+- Switched to MariaDB 11.7.
+- Dashboard: Updated Twig to 3.20.
 - Dashboard: Updated Bootstrap to 5.3.3.
 - Optimized `configure-apache.sh` and `configure-https.sh` scripts.
 - Renamed `install-apt.sh` to `install-repository-tools.sh` and optimized contents.
