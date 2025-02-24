@@ -2,7 +2,7 @@
 
 This repository provides a Docker environment for web development designed for use in web development classes at the [Upper Austria University of Applied Sciences (FH Oberösterreich), Hagenberg Campus](https://fh-ooe.at/en/campus-hagenberg).
 
-This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.4, [MariaDB](https://hub.docker.com/_/mariadb) 11.6, and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2, as well as additional configuration and scripts.
+This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.4, [MariaDB](https://hub.docker.com/_/mariadb) 11.7, and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2, as well as additional configuration and scripts.
 
 Do you need to familiarize yourself with Docker containers, or are you wondering why you should use them? Have a look at the [Introduction](https://www.docker.com/resources/what-container/) first.
 
@@ -24,7 +24,7 @@ To avoid rate limit issues when downloading the underlying images from [Docker H
 
 It is also recommended that you install Git on your host machine so you can easily update to the latest version of *fhooe-web-dock*.
 
-- Windows: [Installer Download](https://gitforwindows.org/) | Chocolatey: `choco install git` | winget: `winget install -e --id Git.Git`
+- Windows: [Installer Download](https://gitforwindows.org/) | Chocolatey: `choco install git` | winget: `winget install Git.Git`
 
 - Mac OS X: Xcode Commandline Tools: `xcode-select –install` | Homebrew: `brew install git`
 
