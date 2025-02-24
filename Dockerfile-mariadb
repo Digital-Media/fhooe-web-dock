@@ -1,5 +1,5 @@
-# Use the official MariaDB 11.6 image
-FROM mariadb:11.6
+# Use the official MariaDB 11.7 image
+FROM mariadb:11.7
 
 # Add image metadata in Open Container Format (OCF) compliant format
 LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
