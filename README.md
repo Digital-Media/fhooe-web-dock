@@ -14,7 +14,7 @@ To use this environment, you will need to install a few tools. Some, like Docker
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop/) creates and runs the *fhooe-web-dock* containers. Download and install it for Windows, macOS (M Series/Silicon or Intel) or Linux. 
 
-- Windows: [Installation Instructions + Installer Download](https://docs.docker.com/desktop/setup/install/windows-install/) | [Chocolatey](https://chocolatey.org/): `choco install docker-desktop` | [winget](https://winget.run/): `winget install -e --id Docker.DockerDesktop`
+- Windows: [Installation Instructions + Installer Download](https://docs.docker.com/desktop/setup/install/windows-install/) | [Chocolatey](https://chocolatey.org/): `choco install docker-desktop` | [WinGet](https://learn.microsoft.com/windows/package-manager/winget/): `winget install Docker.DockerDesktop`
 - macOS: [Installation Instruction + Installer Download](https://docs.docker.com/desktop/setup/install/mac-install/) | [Homebrew](https://brew.sh/): `brew install --cask docker`
 - Linux: [Installation Instructions + Package Download](https://docs.docker.com/desktop/setup/install/linux/)
 
@@ -24,10 +24,8 @@ To avoid rate limit issues when downloading the underlying images from [Docker H
 
 It is also recommended that you install Git on your host machine so you can easily update to the latest version of *fhooe-web-dock*.
 
-- Windows: [Installer Download](https://gitforwindows.org/) | Chocolatey: `choco install git` | winget: `winget install Git.Git`
-
-- Mac OS X: Xcode Commandline Tools: `xcode-select –install` | Homebrew: `brew install git`
-
+- Windows: [Installer Download](https://gitforwindows.org/) | Chocolatey: `choco install git` | WinGet: `winget install Git.Git`
+- macOS: Xcode Commandline Tools: `xcode-select –install` | Homebrew: `brew install git`
 - Linux: Debian/Ubuntu: `apt-get install git`
 
 ## Running the Containers
@@ -63,7 +61,7 @@ docker compose start
 Should your containers malfunction or you want to rebuild them from the latest official images (due to new versions), you can use the provided `CleanInstall` script.
 
 - Windows: Double-click `CleanReinstall.bat` or run the command in a PowerShell/command prompt.
-- Mac OS X/Linux: Run `./CleanReinstall.sh` from a terminal/shell. If the file is not executable, run `chmod +x CleanReinstall.sh` first.
+- macOS/Linux: Run `./CleanReinstall.sh` from a terminal/shell. If the file is not executable, run `chmod +x CleanReinstall.sh` first.
 
 This script does the following:
 
