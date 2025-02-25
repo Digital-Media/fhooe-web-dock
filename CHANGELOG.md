@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+## [1.2.0] - 2025/02/25
+
+### Added
 
 - Added `IgnoreCase` and `FoldersFirst` options to directory indexing.
 - The ports for each of the three services are now explicitly bound to 127.0.0.1 to avoid accidental exposure to the network.
@@ -89,7 +98,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional tools and configuration for each container: Linux command line tools, Composer, PHP_CS, Xdebug, GitHub CLI
 - Experimental Ubuntu container for shell exercises.
 
-[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.2...HEAD
+[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.2.0...HEAD
+[1.2.0]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.2...1.2.0
 [1.1.2]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.0.0...1.1.0
