@@ -15,9 +15,8 @@ LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" 
 COPY src /src
 
 # Run initialization scripts
-RUN cd /src \
-    && chmod 755 *.sh \
-    && /src/install-apt.sh \
+RUN chmod 755 -- /src/*.sh \
+    && /src/install-repository-tools.sh \
     && /src/install-cli-tools.sh \
     && /src/configure-apache.sh \
     && /src/configure-https.sh

@@ -14,6 +14,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Security
 
+## [1.2.0] - 2025/02/25
+
+### Added
+
+- Added `IgnoreCase` and `FoldersFirst` options to directory indexing.
+- The ports for each of the three services are now explicitly bound to 127.0.0.1 to avoid accidental exposure to the network.
+
+### Changed
+
+- Switched PHP image to 8.4.
+- Switched to MariaDB 11.7.
+- Dashboard: Updated Twig to 3.20.
+- Dashboard: Updated Bootstrap to 5.3.3.
+- Optimized `configure-apache.sh` and `configure-https.sh` scripts.
+- Renamed `install-apt.sh` to `install-repository-tools.sh` and optimized contents.
+- Switched to `ENV key=value` syntax in `Dockerfile-php`.
+- Updated `CleanReinstall.bat` and `CleanReinstall.sh` to only remove containers and images from *fhooe-web-dock* while still forcing a complete rebuild of the images (without cached layers).
+
+### Deprecated
+### Removed
+
+- Removed deprecated `version` attribute from `compose.yaml`.
+
+### Fixed
+
+- Syntax cleanup in `Dockerfile-php`, `Dockerfile-mariadb`, `Dockerfile-phpmyadmin`, and `compose.yaml`.
+
+### Security
+
 ## [1.1.2] - 2024-09-11
 
 ### Security
@@ -69,7 +98,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional tools and configuration for each container: Linux command line tools, Composer, PHP_CS, Xdebug, GitHub CLI
 - Experimental Ubuntu container for shell exercises.
 
-[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.2...HEAD
+[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.2.0...HEAD
+[1.2.0]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.2...1.2.0
 [1.1.2]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.0.0...1.1.0

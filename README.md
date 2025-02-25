@@ -1,8 +1,8 @@
 # <img src="https://raw.githubusercontent.com/Digital-Media/fhooe-web-dock/204bfcfc1cb16a5f58bfe070f34a4d0a63462147/webapp/dashboard/views/images/fhooe-web-dock-logo.svg" height="32" alt="The fhooe-web-dock Logo: Three containers stacked above each other."> fhooe-web-dock – A Docker Environment for Web Development Classes
 
-This repository provides a Docker environment for web development designed for use in web development classes at the [Upper Austria University of Applied Sciences (FH Oberösterreich), Hagenberg Campus](https://www.fh-ooe.at/en/hagenberg-campus/).
+This repository provides a Docker environment for web development designed for use in web development classes at the [Upper Austria University of Applied Sciences (FH Oberösterreich), Hagenberg Campus](https://fh-ooe.at/en/campus-hagenberg).
 
-This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.3, [MariaDB](https://hub.docker.com/_/mariadb) 11.2, and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2, as well as additional configuration and scripts.
+This collection of Dockerfiles is based on the official Docker images for [PHP](https://hub.docker.com/_/php/) 8.4, [MariaDB](https://hub.docker.com/_/mariadb) 11.7, and [phpMyAdmin](https://hub.docker.com/_/phpmyadmin) 5.2, as well as additional configuration and scripts.
 
 Do you need to familiarize yourself with Docker containers, or are you wondering why you should use them? Have a look at the [Introduction](https://www.docker.com/resources/what-container/) first.
 
@@ -12,22 +12,20 @@ To use this environment, you will need to install a few tools. Some, like Docker
 
 ### Docker Desktop
 
-[Docker Desktop](https://www.docker.com/products/docker-desktop/) creates and runs the *fhooe-web-dock* containers. Download and install it for Windows, Mac OS (M1 or Intel) or Linux. 
+[Docker Desktop](https://www.docker.com/products/docker-desktop/) creates and runs the *fhooe-web-dock* containers. Download and install it for Windows, macOS (M Series/Silicon or Intel) or Linux. 
 
-- Windows: [Installation Instructions + Installer Download](https://docs.docker.com/desktop/install/windows-install/) | [Chocolatey](https://chocolatey.org/): `choco install docker-desktop` | [winget](https://winget.run/): `winget install -e --id Docker.DockerDesktop`
-- Mac OS X: [Installation Instruction + Installer Download](https://docs.docker.com/desktop/install/mac-install/) | [Homebrew](https://brew.sh/): `brew install --cask docker`
-- Linux: [Installation Instructions + Package Download](https://docs.docker.com/desktop/install/linux-install/)
+- Windows: [Installation Instructions + Installer Download](https://docs.docker.com/desktop/setup/install/windows-install/) | [Chocolatey](https://chocolatey.org/): `choco install docker-desktop` | [WinGet](https://learn.microsoft.com/windows/package-manager/winget/): `winget install Docker.DockerDesktop`
+- macOS: [Installation Instruction + Installer Download](https://docs.docker.com/desktop/setup/install/mac-install/) | [Homebrew](https://brew.sh/): `brew install --cask docker`
+- Linux: [Installation Instructions + Package Download](https://docs.docker.com/desktop/setup/install/linux/)
 
 To avoid rate limit issues when downloading the underlying images from [Docker Hub](https://hub.docker.com/), please register for a [free account](https://hub.docker.com/signup) and make sure you're logged in on Docker Desktop with it.
 
 ### Git
 
-Installing Git on your host machine is also recommended so you can easily update to the latest version of *fhooe-web-dock*.
+It is also recommended that you install Git on your host machine so you can easily update to the latest version of *fhooe-web-dock*.
 
-- Windows: [Installer Download](https://gitforwindows.org/) | Chocolatey: `choco install git` | winget: `winget install -e --id Git.Git`
-
-- Mac OS X: Xcode Commandline Tools: `xcode-select –install` | Homebrew: `brew install git`
-
+- Windows: [Installer Download](https://gitforwindows.org/) | Chocolatey: `choco install git` | WinGet: `winget install Git.Git`
+- macOS: Xcode Commandline Tools: `xcode-select –install` | Homebrew: `brew install git`
 - Linux: Debian/Ubuntu: `apt-get install git`
 
 ## Running the Containers
@@ -63,14 +61,17 @@ docker compose start
 Should your containers malfunction or you want to rebuild them from the latest official images (due to new versions), you can use the provided `CleanInstall` script.
 
 - Windows: Double-click `CleanReinstall.bat` or run the command in a PowerShell/command prompt.
-- Mac OS X/Linux: Run `./CleanReinstall.sh` from a terminal/shell. If the file is not executable, run `chmod +x CleanReinstall.sh` first.
+- macOS/Linux: Run `./CleanReinstall.sh` from a terminal/shell. If the file is not executable, run `chmod +x CleanReinstall.sh` first.
 
-:warning: Warning: This script assumes you only use *fhooe-web-dock* on your system. It will affect other Docker environments as well!
+This script does the following:
 
-1. Stop all running *fhooe-web-dock* containers (`docker compose down -v`).
-2. Remove all unused images, containers, networks, and volumes (`docker system prune --volumes -a -f`). This will also affect other Docker environments on your system!
-3. Update *fhooe-web-dock* from GitHub (`git pull`).
-4. Create and start the containers again (`docker compose up -d`).
+1. Stop all running *fhooe-web-dock* containers (`docker compose stop`).
+2. Ask for permission to remove the *fhooe-web-dock* containers and images.
+3. If permisssion is granted, remove images, containers, networks, and volumes (`docker compose down --rmi all --volumes --remove-orphans`).
+4. Removes any other dangling images belonging to *fhooe-web-dock* (`docker image prune --force --filter "label=com.docker.compose.project=%COMPOSE_PROJECT_NAME%"`).
+5. Update *fhooe-web-dock* from GitHub (`git pull`).
+6. Build the images from scratch, ignoring cached layers (`docker compose build --no-cache`).
+7. Create and start the containers again (`docker compose up -d`).
 
 ## Working With the Containers
 
@@ -96,7 +97,7 @@ To access the other containers, replace the container name `webapp` with `mariad
 
 ### Permissions Inside the `webapp` Directory
 
-`webapp` is a so-called [bind mount](https://docs.docker.com/storage/bind-mounts/) that allows mapping a directory from the host system into the Docker container. On Linux/macOS hosts, permissions are synced. If your local user can access the directory, so does everything within the container. Permissions cannot be synced on Windows hosts, so permission errors in the container will likely occur at some point. Even though you can create files and directories within the `webapp` directory, the web server in the container will not be able to write files or create directories. If this is the case, you need to set permissions manually:
+`webapp` is a so-called [bind mount](https://docs.docker.com/engine/storage/bind-mounts/) that allows mapping a directory from the host system into the Docker container. On Linux/macOS hosts, permissions are synced. If your local user can access the directory, so does everything within the container. Permissions cannot be synced on Windows hosts, so permission errors in the container will likely occur at some point. Even though you can create files and directories within the `webapp` directory, the web server in the container will not be able to write files or create directories. If this is the case, you need to set permissions manually:
 
 ```shell
 chmod -R 777 your/directory/within/webapp

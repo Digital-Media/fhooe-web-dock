@@ -1,5 +1,5 @@
-# Use the official MariaDB 11.2 image
-FROM mariadb:11.2
+# Use the official MariaDB 11.7 image
+FROM mariadb:11.7
 
 # Add image metadata in Open Container Format (OCF) compliant format
 LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" \
@@ -15,7 +15,6 @@ LABEL maintainer="Hochleitner, Wolfgang <wolfgang.hochleitner@fh-hagenberg.at>" 
 COPY src /src
 
 # Run initialization scripts
-RUN cd /src \
-    && chmod 755 *.sh \
-    && /src/install-apt.sh \
+RUN chmod 755 -- /src/*.sh \
+    && /src/install-repository-tools.sh \
     && /src/install-cli-tools.sh

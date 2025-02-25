@@ -16,10 +16,10 @@
         }
     ],
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "ext-mbstring": "*",
         "ext-pdo": "*",
-        "twig/twig": "^3.14"
+        "twig/twig": "^3.20"
     },
     "minimum-stability": "stable",
     "autoload": {
