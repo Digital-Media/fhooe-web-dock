@@ -16,5 +16,4 @@ COPY src /src
 
 # Run initialization scripts
 RUN chmod 755 -- /src/*.sh \
-    && /src/install-repository-tools.sh \
     && /src/install-cli-tools.sh

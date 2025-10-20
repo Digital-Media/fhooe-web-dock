@@ -14,6 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Security
 
+## [1.2.1] - 2025/10/20
+
+### Removed
+
+- Removed `install-repository-tools.sh` and the calls from all Dockerfiles since it caused an error when building the images. This script installed the `software-properties-common` Debian package which was removed from current Debian Trixie versions. See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1038747 for details.
+
 ## [1.2.0] - 2025/02/25
 
 ### Added
@@ -98,7 +104,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional tools and configuration for each container: Linux command line tools, Composer, PHP_CS, Xdebug, GitHub CLI
 - Experimental Ubuntu container for shell exercises.
 
-[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.2.1...HEAD
+[1.2.1]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.2...1.2.0
 [1.1.2]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.1.0...1.1.1
