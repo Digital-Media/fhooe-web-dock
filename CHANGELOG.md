@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## [1.3.4] - 2026/05/19
+
+### Added
+
+- Added `exif` PHP extension to both the Apache/PHP and FrankenPHP images.
+
 ## [1.3.3] - 2026/05/03
 
 ### Added
@@ -166,7 +172,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional tools and configuration for each container: Linux command line tools, Composer, PHP_CS, Xdebug, GitHub CLI
 - Experimental Ubuntu container for shell exercises.
 
-[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.3.3...HEAD
+[Unreleased]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.3.4...HEAD
+[1.3.4]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.3.3...1.3.4
 [1.3.3]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.3.2...1.3.3
 [1.3.2]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/Digital-Media/fhooe-web-dock/compare/1.3.0...1.3.1

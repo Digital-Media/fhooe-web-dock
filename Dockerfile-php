@@ -49,6 +49,7 @@ RUN --mount=type=bind,from=ghcr.io/php/pie:bin,source=/pie,target=/usr/local/bin
     && docker-php-ext-install gettext \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j"$(nproc)" gd \
+    && docker-php-ext-install exif \
     && chmod 755 -- /src/*.sh \
     && pie install xdebug/xdebug \
     && /src/install-cli-tools.sh \

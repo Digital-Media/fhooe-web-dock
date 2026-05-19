@@ -22,7 +22,7 @@ COPY src /src
 RUN mv "${PHP_INI_DIR}/php.ini-development" "${PHP_INI_DIR}/php.ini" \
     && apt-get update \
     && apt-get install -y --no-install-recommends libpq-dev \
-    && install-php-extensions pdo_mysql pdo_pgsql pgsql intl gd gettext xdebug zip \
+    && install-php-extensions pdo_mysql pdo_pgsql pgsql intl gd gettext xdebug zip exif \
     && apt-get update \
     && apt-get install -y --no-install-recommends curl \
                                                   gettext \
